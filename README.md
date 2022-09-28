@@ -1,4 +1,5 @@
 # Jans-Wholesale-Project
 Group Members:
+
 Reon Robb - 1903966
-Anelka 
+Anelka Lopez 1908764
