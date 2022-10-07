@@ -1,9 +1,10 @@
 
-import format.Address;
 
-import java.util.Date;
 
-public class Customer {
+import format.*;
+import  java.io.Serializable;
+
+public class Customer implements Serializable {
 
     private String cusID;
     private String cusName;
