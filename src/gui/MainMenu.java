@@ -28,6 +28,21 @@ public class MainMenu {
 
         exitButton.setBounds(50, 150, 100, 25);
 
+
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Register register = new Register();
+            }
+        });
+
+        inventoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Inventory inventory = new Inventory();
+            }
+        });
+
         panel.add(registerButton);
         panel.add(inventoryButton);
         panel.add(exitButton);
