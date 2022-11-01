@@ -6,6 +6,8 @@ public class Register {
 
     public Register()
     {
+
+        Inventory inventory = new Inventory();
         JFrame rFrame = new JFrame();
 
         JPanel rPanel = new JPanel();
@@ -18,6 +20,7 @@ public class Register {
 
 
         checkout.setBounds(50, 50, 100, 25);
+
 
 
 
