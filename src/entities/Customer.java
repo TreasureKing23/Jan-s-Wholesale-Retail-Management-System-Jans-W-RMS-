@@ -13,7 +13,7 @@ public class Customer implements Serializable {
     private String telephone;
     private String email;
     private Date dateOfMembership;
-    private Date getDateOfMembershipExp;
+    private Date dateOfMembershipExp;
 
 
     public Customer(String cusID, String cusName, Date dob, Address address, String telephone, String email, Date dateOfMembership, Date getDateOfMembershipExp) {
@@ -24,7 +24,7 @@ public class Customer implements Serializable {
         this.telephone = telephone;
         this.email = email;
         this.dateOfMembership = dateOfMembership;
-        this.getDateOfMembershipExp = getDateOfMembershipExp;
+        this.dateOfMembershipExp = getDateOfMembershipExp;
     }
 
     public String getCusID() {
@@ -76,11 +76,11 @@ public class Customer implements Serializable {
         this.dateOfMembership = dateOfMembership;
     }
 
-    public Date getGetDateOfMembershipExp() {
-        return getDateOfMembershipExp;
+    public Date getDateOfMembershipExp() {
+        return dateOfMembershipExp;
     }
     public void setGetDateOfMembershipExp(Date getDateOfMembershipExp) {
-        this.getDateOfMembershipExp = getDateOfMembershipExp;
+        this.dateOfMembershipExp = getDateOfMembershipExp;
     }
 
 
