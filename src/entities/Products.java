@@ -1,3 +1,4 @@
+package entities;
 
 public class Products {
 
@@ -67,7 +68,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Products{" +
+        return "entities.Products{" +
                 "prodCode='" + prodCode + '\'' +
                 ", prodName='" + prodName + '\'' +
                 ", prodShortDesc='" + prodShortDesc + '\'' +

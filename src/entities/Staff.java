@@ -1,3 +1,5 @@
+package entities;
+
 public class Staff {
 
     private String name;
@@ -56,7 +58,7 @@ public class Staff {
 
     @Override
     public String toString() {
-        return "Staff{" +
+        return "entities.Staff{" +
                 "name='" + name + '\'' +
                 ", staffID='" + staffID + '\'' +
                 ", position='" + position + '\'' +

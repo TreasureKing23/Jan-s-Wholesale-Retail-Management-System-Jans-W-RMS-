@@ -1,3 +1,5 @@
+package entities;
+
 import format.Date;
 
 public class Invoice {
@@ -69,7 +71,7 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Invoice{" +
+        return "entities.Invoice{" +
                 "invoiceNo=" + invoiceNo +
                 ", billingDate=" + billingDate +
                 ", item='" + item + '\'' +

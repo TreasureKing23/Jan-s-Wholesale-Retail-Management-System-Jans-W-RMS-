@@ -2,13 +2,13 @@ package format;
 
 public class Address {
     private String street;
-    private String city;
+    private String town;
     private String parish;
 
 
     public Address(String street, String city, String parish) {
         this.street = street;
-        this.city = city;
+        this.town = city;
 
     }
 
@@ -19,11 +19,11 @@ public class Address {
         this.street = street;
     }
 
-    public String getCity() {
-        return city;
+    public String getTown() {
+        return town;
     }
     public void setCity(String city) {
-        this.city = city;
+        this.town = city;
     }
 
     public String getParish() {
@@ -37,7 +37,7 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "street='" + street + '\'' +
-                ", city='" + city + '\'' +
+                ", city='" + town + '\'' +
                 ", parish='" + parish + '\'' +
                 '}';
     }
