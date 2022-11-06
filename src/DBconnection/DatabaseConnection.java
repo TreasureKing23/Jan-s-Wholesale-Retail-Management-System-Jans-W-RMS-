@@ -5,6 +5,7 @@ import entities.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Vector;
 
 
 public class DatabaseConnection {
@@ -24,20 +25,20 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public static Connection showInventory() throws SQLException {
-        String query = "SELECT * FROM inventory";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
-        while(rs.next()) {
-            String id = rs.getString(1);
-            String name = rs.getString(2);
-            String shortDesc = rs.getString(3);
-            String longDesc = rs.getString(4);
-            String stock = rs.getString(5);
-            String price = rs.getString(6);
-        }
-        return conn;
-    }
+//    public static Connection showInventory() throws SQLException {
+//        String query = "SELECT * FROM inventory";
+//        PreparedStatement ps = conn.prepareStatement(query);
+//        ResultSet rs = ps.executeQuery();
+//        while(rs.next()) {
+//            String id = rs.getString(1);
+//            String name = rs.getString(2);
+//            String shortDesc = rs.getString(3);
+//            String longDesc = rs.getString(4);
+//            String stock = rs.getString(5);
+//            String price = rs.getString(6);
+//        }
+//        return conn;
+//    }
 
     public static Connection insertIntoCustomer(Customer cus) throws SQLException {
         Statement statement = conn.createStatement();
@@ -55,11 +56,11 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public static ArrayList showInventory(Products pro) throws SQLException
+    public static  Vector<Products> showInventory() throws SQLException
     {
-        ArrayList<Products> prodList = new ArrayList<>();
+        Vector<Products> prodList = new Vector<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM customer";
+        String query = "SELECT * FROM inventory";
         PreparedStatement ps = conn.prepareStatement(query);
         ResultSet rs = ps.executeQuery();
         while (rs.next()){
@@ -91,9 +92,9 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public static ArrayList showStaff(Staff staff) throws SQLException
+    public static Vector showStaff(Staff staff) throws SQLException
     {
-        ArrayList<Staff> staffList = new ArrayList<>();
+        Vector<Staff> staffList = new Vector<>();
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM staff";
         PreparedStatement ps = conn.prepareStatement(query);

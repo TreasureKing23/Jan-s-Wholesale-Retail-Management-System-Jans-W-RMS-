@@ -9,6 +9,15 @@ public class Products {
     private int prodStock;
     private double unitPrice;
 
+    public Products()
+    {
+        this.prodCode = "";
+        this.prodName = "";
+        this.prodShortDesc = "";
+        this.prodLongDesc = "";
+        this.prodStock = 0;
+        this.unitPrice = 0.0;
+    }
     public Products(String prodCode, String prodName, String prodShortDesc, String prodLongDesc, int prodStock, double unitPrice) {
         this.prodCode = prodCode;
         this.prodName = prodName;
