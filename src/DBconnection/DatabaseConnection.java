@@ -77,6 +77,13 @@ public class DatabaseConnection {
         return prodList;
     }
 
+    public static Connection deleteFromInventory(String id) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "DELETE FROM inventory WHERE ProductCode = '"+id+"'";
+        statement.executeUpdate(query);
+        return conn;
+    }
+
     public static Connection insertIntoStaff(Staff staff) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "INSERT INTO Staff Values ('"+staff.getStaffID()+"','"+staff.getName()+"','"+staff.getPosition()+"','"+staff.getDepartment()+"','"+staff.getDateOfBirth().toString()+"')";
@@ -101,6 +108,13 @@ public class DatabaseConnection {
             staffList.add(staff);
         }
         return staffList;
+    }
+
+    public static Connection deleteFromStaff(String id) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "DELETE FROM staff WHERE StaffID = '"+id+"'";
+        statement.executeUpdate(query);
+        return conn;
     }
 
 
