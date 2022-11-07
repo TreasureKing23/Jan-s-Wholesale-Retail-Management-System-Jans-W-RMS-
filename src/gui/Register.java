@@ -1,13 +1,13 @@
 package gui;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Register {
 
-    public Register()
-    {
+    public Register() throws SQLException {
 
-        Inventory inventory = new Inventory();
+
         JFrame rFrame = new JFrame();
 
         JPanel rPanel = new JPanel();
