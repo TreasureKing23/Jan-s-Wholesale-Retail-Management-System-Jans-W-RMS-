@@ -51,7 +51,7 @@ public class Inventory {
         view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("INVENTORY");
+                JFrame viewFrame = new JFrame("INVENTORY");
                 String[] columnNames ={"Product ID", "Product Name", "Short Description", "Long Description", "Quantity", "Price"};
                 DefaultTableModel model = new DefaultTableModel(columnNames, 0);
                 while(finalEnu.hasMoreElements()) {
@@ -69,10 +69,10 @@ public class Inventory {
                 table.setBounds(50, 50, 400, 400);
                 JScrollPane sp=new JScrollPane(table);
 
-                frame.add(sp);
-                frame.setSize(800, 800);
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                viewFrame.add(sp);
+                viewFrame.setSize(800, 800);
+                viewFrame.setVisible(true);
+                viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             }
         });
 
