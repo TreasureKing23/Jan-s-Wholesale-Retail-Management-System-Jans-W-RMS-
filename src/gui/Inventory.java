@@ -69,17 +69,10 @@ public class Inventory {
                 table.setBounds(50, 50, 400, 400);
                 JScrollPane sp=new JScrollPane(table);
 
-<<<<<<< Updated upstream
                 viewFrame.add(sp);
                 viewFrame.setSize(800, 800);
                 viewFrame.setVisible(true);
-                viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-=======
-                frame.add(sp);
-                frame.setSize(800, 800);
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
->>>>>>> Stashed changes
+                viewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             }
         });
 
