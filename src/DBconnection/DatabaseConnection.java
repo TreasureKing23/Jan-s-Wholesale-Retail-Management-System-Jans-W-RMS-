@@ -2,9 +2,7 @@ package DBconnection;
 import entities.*;
 
 
-
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -59,7 +57,6 @@ public class DatabaseConnection {
     public static  Vector<Products> showInventory() throws SQLException
     {
         Vector<Products> prodList = new Vector<>();
-        Statement statement = conn.createStatement();
         String query = "SELECT * FROM inventory";
         PreparedStatement ps = conn.prepareStatement(query);
         ResultSet rs = ps.executeQuery();

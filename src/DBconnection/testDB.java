@@ -1,6 +1,6 @@
 package DBconnection;
 import  java.sql.*;
-public class DBconn {
+public class testDB {
 
     public static void main(String[] args) throws SQLException {
         Connection conn = null;

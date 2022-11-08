@@ -23,7 +23,7 @@ public class Inventory {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Enumeration finalEnu = enu;
+        Enumeration finalEnu = enu; 
 
 
         JFrame iFrame = new JFrame();
