@@ -38,7 +38,7 @@ public class Register {
         rFrame.setLayout(null);
         rFrame.setVisible(true);
         rFrame.setSize(500, 500);
-        rFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        rFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }
 

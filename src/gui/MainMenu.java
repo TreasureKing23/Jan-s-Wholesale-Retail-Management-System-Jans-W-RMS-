@@ -3,7 +3,10 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 public class MainMenu {
 
@@ -35,13 +38,21 @@ public class MainMenu {
             }
         });
 
+<<<<<<< Updated upstream
         inventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                     Inventory inventory = new Inventory();
             }
+=======
+        inventoryButton.addActionListener(e -> {
+            Inventory inventory = new Inventory();
+
+>>>>>>> Stashed changes
         });
+
+        exitButton.addActionListener(e -> System.exit(0));
 
         panel.add(registerButton);
         panel.add(inventoryButton);
@@ -62,7 +73,7 @@ public class MainMenu {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         MainMenu mainMenu = new MainMenu();
     }
 }

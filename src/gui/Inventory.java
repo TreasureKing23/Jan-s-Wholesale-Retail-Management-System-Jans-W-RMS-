@@ -42,7 +42,7 @@ public class Inventory {
         goback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainMenu mainMenu = new MainMenu();
+                iFrame.dispose();
             }
         });
 
@@ -69,10 +69,17 @@ public class Inventory {
                 table.setBounds(50, 50, 400, 400);
                 JScrollPane sp=new JScrollPane(table);
 
+<<<<<<< Updated upstream
                 viewFrame.add(sp);
                 viewFrame.setSize(800, 800);
                 viewFrame.setVisible(true);
                 viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+                frame.add(sp);
+                frame.setSize(800, 800);
+                frame.setVisible(true);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+>>>>>>> Stashed changes
             }
         });
 
@@ -93,7 +100,7 @@ public class Inventory {
 
         iFrame.setVisible(true);
         iFrame.setSize(500, 500);
-        iFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        iFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
 
