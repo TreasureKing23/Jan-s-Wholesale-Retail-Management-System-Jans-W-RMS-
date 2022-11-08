@@ -3,9 +3,7 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Objects;
+
 
 public class MainMenu {
 
@@ -40,11 +38,8 @@ public class MainMenu {
         inventoryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
+
                     Inventory inventory = new Inventory();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         });
 

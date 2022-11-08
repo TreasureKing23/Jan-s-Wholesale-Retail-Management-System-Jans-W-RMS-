@@ -5,8 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 import DBconnection.*;
 import entities.Products;
@@ -24,6 +23,7 @@ public class Inventory {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        Enumeration finalEnu = enu;
 
 
         JFrame iFrame = new JFrame();
@@ -47,7 +47,7 @@ public class Inventory {
         });
 
 
-        Enumeration finalEnu = enu;
+
         view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
