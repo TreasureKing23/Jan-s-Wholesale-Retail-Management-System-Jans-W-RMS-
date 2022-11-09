@@ -12,6 +12,12 @@ public class Address {
 
     }
 
+    public Address() {
+        this.street = "";
+        this.town = "";
+        this.parish = "";
+    }
+
     public String getStreet() {
         return street;
     }

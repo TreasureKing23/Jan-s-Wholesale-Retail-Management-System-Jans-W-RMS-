@@ -1,17 +1,16 @@
 package entities;
 
-import format.Date;
 
 public class Invoice {
 
     private int invoiceNo;
-    private Date billingDate;
+    private String billingDate;
     private String item;
     private int quantity;
     private String cashierName;
     private String customerName;
 
-    public Invoice(int invoiceNo, Date billingDate, String item, int quantity, String cashierName, String customerName)
+    public Invoice(int invoiceNo, String billingDate, String item, int quantity, String cashierName, String customerName)
     {
         this.invoiceNo = invoiceNo;
         this.billingDate = billingDate;
@@ -29,11 +28,11 @@ public class Invoice {
         this.invoiceNo = invoiceNo;
     }
 
-    public Date getBillingDate() {
+    public String getBillingDate() {
         return billingDate;
     }
 
-    public void setBillingDate(Date billingDate) {
+    public void setBillingDate(String billingDate) {
         this.billingDate = billingDate;
     }
 

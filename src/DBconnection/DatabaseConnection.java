@@ -40,12 +40,14 @@ public class DatabaseConnection {
 
     public static Connection insertIntoCustomer(Customer cus) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "INSERT INTO customer (CustomerID,Name,DOB,EmailAddress,DateOfMembership,MembershipExpiryDate) VALUES ('"+cus.getCusID()+"','"+cus.getCusName()+"','"+cus.getDob().toString()+"','"+cus.getEmail()+"','"+cus.getDateOfMembership().toString()+"','"+cus.getDateOfMembershipExp().toString()+"')";
+        String query = "INSERT INTO customer (CustomerID,Name,DOB,EmailAddress,DateOfMembership,MembershipExpiryDate) VALUES ('"+cus.getCusID()+"','"+cus.getCusName()+"','"+cus.getDob()+"','"+cus.getEmail()+"','"+cus.getDateOfMembership()+"','"+cus.getDateOfMembershipExp()+"')";
         String query2 = "Insert into address (CustomerID,Street,Town,Parish) VALUES ('"+cus.getCusID()+"','"+cus.getAddress().getStreet()+"','"+cus.getAddress().getTown()+"','"+cus.getAddress().getParish()+"')";
         statement.executeUpdate(query);
         statement.executeUpdate(query2);
         return conn;
     }
+
+
 
     public static  Connection insertIntoInventory(Products pro) throws SQLException {
         Statement statement = conn.createStatement();
@@ -74,6 +76,8 @@ public class DatabaseConnection {
         }
         return prodList;
     }
+
+
 
     public static Connection deleteFromInventory(String id) throws SQLException {
         Statement statement = conn.createStatement();

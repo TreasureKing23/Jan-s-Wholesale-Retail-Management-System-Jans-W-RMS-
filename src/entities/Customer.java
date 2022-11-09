@@ -8,15 +8,27 @@ public class Customer implements Serializable {
 
     private String cusID;
     private String cusName;
-    private Date dob;
+    private String dob;
     private Address address;
     private String telephone;
     private String email;
-    private Date dateOfMembership;
-    private Date dateOfMembershipExp;
+    private String dateOfMembership;
+    private String dateOfMembershipExp;
 
 
-    public Customer(String cusID, String cusName, Date dob, Address address, String telephone, String email, Date dateOfMembership, Date getDateOfMembershipExp) {
+    public Customer() {
+        this.cusID = "";
+        this.cusName = "";
+        this.dob = "";
+        this.address = new Address();
+        this.telephone = "";
+        this.email = "";
+        this.dateOfMembership = "";
+        this.dateOfMembershipExp = "";
+
+    }
+
+    public Customer(String cusID, String cusName, String dob, Address address, String telephone, String email, String dateOfMembership, String getDateOfMembershipExp) {
         this.cusID = cusID;
         this.cusName = cusName;
         this.dob = dob;
@@ -26,6 +38,8 @@ public class Customer implements Serializable {
         this.dateOfMembership = dateOfMembership;
         this.dateOfMembershipExp = getDateOfMembershipExp;
     }
+
+
 
     public String getCusID() {
         return cusID;
@@ -41,10 +55,10 @@ public class Customer implements Serializable {
         this.cusName = cusName;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -69,20 +83,24 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    public Date getDateOfMembership() {
+    public String getDateOfMembership() {
         return dateOfMembership;
     }
-    public void setDateOfMembership(Date dateOfMembership) {
+    public void setDateOfMembership(String dateOfMembership) {
         this.dateOfMembership = dateOfMembership;
     }
 
-    public Date getDateOfMembershipExp() {
+    public String getDateOfMembershipExp() {
         return dateOfMembershipExp;
     }
-    public void setGetDateOfMembershipExp(Date getDateOfMembershipExp) {
+    public void setGetDateOfMembershipExp(String getDateOfMembershipExp) {
         this.dateOfMembershipExp = getDateOfMembershipExp;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" + "cusID=" + cusID + ", cusName=" + cusName + ", dob=" + dob + ", address=" + address + ", telephone=" + telephone + ", email=" + email + ", dateOfMembership=" + dateOfMembership + ", dateOfMembershipExp=" + dateOfMembershipExp + '}';
+    }
 
 
 
