@@ -84,10 +84,7 @@ public class Register {
             }
 
 
-<<<<<<< Updated upstream
-            // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
-=======
->>>>>>> Stashed changes
+
         });
 
         rPanel.setLayout(null);

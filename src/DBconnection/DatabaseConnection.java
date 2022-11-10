@@ -1,5 +1,6 @@
 package DBconnection;
 import entities.*;
+import format.Address;
 
 
 import java.sql.*;
@@ -44,6 +45,33 @@ public class DatabaseConnection {
         String query2 = "Insert into address (CustomerID,Street,Town,Parish) VALUES ('"+cus.getCusID()+"','"+cus.getAddress().getStreet()+"','"+cus.getAddress().getTown()+"','"+cus.getAddress().getParish()+"')";
         statement.executeUpdate(query);
         statement.executeUpdate(query2);
+    }
+
+    public static Vector<Customer> showCustomers() throws SQLException {
+        Vector<Customer> cusList = new Vector<>();
+        String c = "customer";
+        String query = "SELECT * FROM customer";
+        String query2 = "SELECT * FROM address";
+        PreparedStatement ps = conn.prepareStatement(query);
+        PreparedStatement ps2 = conn.prepareStatement(query2);
+        ResultSet rs = ps.executeQuery();
+        ResultSet rs2 = ps2.executeQuery();
+        while (rs.next() && rs2.next()) {
+            String cusID = rs.getString(1);
+            String cusName = rs.getString(2);
+            String dob = rs.getString(3);
+            String telephone = rs.getString(4);
+            String email = rs.getString(5);
+            String dateOfMembership = rs.getString(6);
+            String dateOfMembershipExp = rs.getString(7);
+            String street = rs2.getString(2);
+            String town = rs2.getString(3);
+            String parish = rs2.getString(4);
+            Address address = new Address(street, town, parish);
+            Customer customer = new Customer(cusID, cusName, dob,address, telephone, email, dateOfMembership, dateOfMembershipExp);
+            cusList.add(customer);
+        }
+        return cusList;
     }
 
 
