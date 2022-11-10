@@ -82,12 +82,6 @@ public class Register {
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
-
-
-<<<<<<< Updated upstream
-            // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
-=======
->>>>>>> Stashed changes
         });
 
         rPanel.setLayout(null);
