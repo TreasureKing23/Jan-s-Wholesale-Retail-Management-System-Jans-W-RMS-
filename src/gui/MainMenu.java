@@ -13,24 +13,22 @@ public class MainMenu {
         JPanel panel = new JPanel();
         panel.setSize(500, 500);
 
+        JLabel label = new JLabel("Main Menu");
 
-        JButton registerButton = new JButton("Register");
+        JButton customerDatabase = new JButton("Customer Database");
         JButton inventoryButton = new JButton("Inventory");
         JButton exitButton = new JButton("Exit");
 
+        label.setBounds(220,20,200,25);
+        customerDatabase.setBounds(100, 50, 300, 25);
+        inventoryButton.setBounds(100, 100, 300, 25);
+        exitButton.setBounds(100, 150, 300, 25);
 
 
-        registerButton.setBounds(50, 50, 100, 25);
-
-        inventoryButton.setBounds(50, 100, 100, 25);
-
-        exitButton.setBounds(50, 150, 100, 25);
-
-
-        registerButton.addActionListener(new ActionListener() {
+        customerDatabase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                CustomerDatabase cd = new CustomerDatabase();
             }
         });
 
@@ -40,7 +38,8 @@ public class MainMenu {
 
         exitButton.addActionListener(e -> System.exit(0));
 
-        panel.add(registerButton);
+        panel.add(label);
+        panel.add(customerDatabase);
         panel.add(inventoryButton);
         panel.add(exitButton);
         panel.setLayout(null);
@@ -49,12 +48,14 @@ public class MainMenu {
 
         frame.add(panel);
 
-//        frame.add(registerButton);
+//        frame.add(customerDatabase);
 //        frame.add(inventoryButton);
 
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setSize(500, 500);
+        frame.setTitle("Jans Wholesale Pilot Program");
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
