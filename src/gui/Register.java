@@ -77,12 +77,17 @@ public class Register {
             Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
             try {
                 insertIntoCustomer(customer);
+                JOptionPane.showMessageDialog(null, "Customer inserted", "Success",JOptionPane.INFORMATION_MESSAGE);
+                rFrame.dispose();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
 
 
+<<<<<<< Updated upstream
             // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
+=======
+>>>>>>> Stashed changes
         });
 
         rPanel.setLayout(null);
