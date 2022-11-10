@@ -82,9 +82,6 @@ public class Register {
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
-
-
-
         });
 
         rPanel.setLayout(null);
