@@ -1,6 +1,8 @@
 package gui;
 import entities.*;
 import DBconnection.*;
+import format.Address;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
@@ -9,11 +11,14 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
+import static DBconnection.DatabaseConnection.insertIntoCustomer;
+
 public class Register {
 
     public Register() throws SQLException {
-        Customer customer = new Customer();
+
         DatabaseConnection dbconn = new DatabaseConnection();
+        dbconn.connectToDB();
         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         JDialog rFrame = new JDialog();
@@ -57,14 +62,26 @@ public class Register {
         register.setBounds(200, 400, 100, 25);
 
         register.addActionListener(e -> {
+            int a = (int)(Math.random()*(200-100+1)+100);
+            String id = "C" + a;
             String name = nameText.getText();
             String dob = dobInput.getText();
-            //String address = addressText.getText();
+            String street = streetText.getText();
+            String town = townText.getText();
+            String parish = parishText.getText();
             String email = emailText.getText();
             String tel = telText.getText();
             String dateOfMembership = dateTime.format(LocalDateTime.now());
             String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
-           // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
+            Address address = new Address(street, town, parish);
+            Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
+            try {
+                insertIntoCustomer(customer);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
         });
 
         rPanel.setLayout(null);
