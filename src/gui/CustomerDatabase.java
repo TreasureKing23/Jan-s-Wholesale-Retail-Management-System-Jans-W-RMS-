@@ -61,7 +61,6 @@ public class CustomerDatabase {
             JTable table = new JTable(model);
             table.setBounds(50, 50, 400, 400);
             JScrollPane sp=new JScrollPane(table);
-
             viewFrame.add(sp);
             viewFrame.setSize(1000, 1000);
             viewFrame.setVisible(true);
