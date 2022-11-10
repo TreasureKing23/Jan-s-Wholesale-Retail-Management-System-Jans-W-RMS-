@@ -19,7 +19,7 @@ public class Register {
 
         DatabaseConnection dbconn = new DatabaseConnection();
         dbconn.connectToDB();
-        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+  //      DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         JDialog rFrame = new JDialog();
         JPanel rPanel = new JPanel();
@@ -71,8 +71,8 @@ public class Register {
             String parish = parishText.getText();
             String email = emailText.getText();
             String tel = telText.getText();
-            String dateOfMembership = dateTime.format(LocalDateTime.now());
-            String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
+            String dateOfMembership = df.format(LocalDateTime.now());
+            String dateOfMembershipExp = df.format(LocalDateTime.now().plusYears(1));
             Address address = new Address(street, town, parish);
             Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
             try {
@@ -80,6 +80,7 @@ public class Register {
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
+
 
             // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
         });
