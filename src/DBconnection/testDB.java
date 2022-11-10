@@ -21,8 +21,16 @@ Address address = new Address();
         }
     }
 
+    public static Connection checkout() throws SQLException{
+        String query = "INSERT into checkout Values()";
+        Statement statement = conntest.createStatement();
+        statement.executeUpdate(query);
+        return conntest;
+    }
+
     public static Vector<Customer> showCustomers() throws SQLException {
         Vector<Customer> cusList = new Vector<>();
+        String c = "customer";
         String query = "SELECT * FROM customer";
         String query2 = "SELECT * FROM address";
         PreparedStatement ps = conntest.prepareStatement(query);

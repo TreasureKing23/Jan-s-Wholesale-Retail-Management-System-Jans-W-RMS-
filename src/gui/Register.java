@@ -1,14 +1,21 @@
 package gui;
-
+import entities.*;
+import DBconnection.*;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Register {
 
     public Register() throws SQLException {
+        Customer customer = new Customer();
+        DatabaseConnection dbconn = new DatabaseConnection();
+        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         JDialog rFrame = new JDialog();
         JPanel rPanel = new JPanel();
 
@@ -20,7 +27,6 @@ public class Register {
         JLabel telLabel = new JLabel("Telephone: ");
 
         JTextField nameText = new JTextField();
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         JFormattedTextField dobInput = new JFormattedTextField(df);
         JTextArea addressText = new JTextArea();
         JTextField emailText = new JTextField();
@@ -41,6 +47,17 @@ public class Register {
         telText.setBounds(120, 270,200,25);
 
         register.setBounds(200, 400, 100, 25);
+
+        register.addActionListener(e -> {
+            String name = nameText.getText();
+            String dob = dobInput.getText();
+            String address = addressText.getText();
+            String email = emailText.getText();
+            String tel = telText.getText();
+            String dateOfMembership = dateTime.format(LocalDateTime.now());
+            String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
+           // customer = new Customer(name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
+        });
 
         rPanel.setLayout(null);
         rPanel.setSize(500, 500);
