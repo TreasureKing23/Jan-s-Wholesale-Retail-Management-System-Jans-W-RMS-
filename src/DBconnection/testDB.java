@@ -65,6 +65,8 @@ Address address = new Address();
     }
 
 
+
+
 //For some reason the parish feild always null
 
     public static void main(String[] args) throws SQLException {
