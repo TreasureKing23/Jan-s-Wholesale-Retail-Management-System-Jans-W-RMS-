@@ -42,7 +42,7 @@ public class CustomerDatabase {
         });
 
         viewCustomers.addActionListener(e -> {
-            JFrame viewFrame = new JFrame("CUSTOMERS");
+            JDialog viewFrame = new JDialog();
             String[] columnNames ={"CUSTOMER ID","NAME","DOB","ADDRESS","Telephone","Email","Date of Membership","Date of Membership Expiry"};
             DefaultTableModel model = new DefaultTableModel(columnNames, 0);
             while(finalEnu.hasMoreElements()){
@@ -62,6 +62,8 @@ public class CustomerDatabase {
             table.setBounds(50, 50, 400, 400);
             JScrollPane sp=new JScrollPane(table);
             viewFrame.add(sp);
+            viewFrame.setModal(true);
+            viewFrame.setResizable(false);
             viewFrame.setSize(1000, 1000);
             viewFrame.setVisible(true);
             viewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
