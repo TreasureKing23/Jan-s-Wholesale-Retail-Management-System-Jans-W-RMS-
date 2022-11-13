@@ -1,5 +1,5 @@
 package gui;
-import entities.*;
+import Domain.*;
 import DBconnection.*;
 import format.Address;
 
@@ -10,7 +10,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import static DBconnection.DatabaseConnection.insertIntoCustomer;
 

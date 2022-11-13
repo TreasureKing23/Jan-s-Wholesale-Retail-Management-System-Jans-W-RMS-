@@ -1,4 +1,4 @@
-package entities;
+package Domain;
 
 
 public class Invoice {
@@ -9,6 +9,16 @@ public class Invoice {
     private int quantity;
     private String cashierName;
     private String customerName;
+
+    public Invoice()
+    {
+        this.invoiceNo = 0;
+        this.billingDate = "";
+        this.item = "";
+        this.quantity = 0;
+        this.cashierName = "";
+        this.customerName = "";
+    }
 
     public Invoice(int invoiceNo, String billingDate, String item, int quantity, String cashierName, String customerName)
     {

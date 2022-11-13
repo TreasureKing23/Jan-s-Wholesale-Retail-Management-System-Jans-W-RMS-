@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import DBconnection.*;
-import entities.Products;
+import Domain.Products;
 
 public class Inventory {
 
