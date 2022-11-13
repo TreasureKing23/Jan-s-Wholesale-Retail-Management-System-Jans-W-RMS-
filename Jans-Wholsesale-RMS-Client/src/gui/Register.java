@@ -27,7 +27,7 @@ public class Register {
 
         JLabel label = new JLabel("Register a new customer");
         JLabel nameLabel = new JLabel("Name: ");
-        JLabel DobLabel = new JLabel("Date of Birth: ");
+        JLabel DobLabel = new JLabel("Date of Birth MM/DD/YYYY: ");
         JLabel streetLabel = new JLabel("Street: ");
         JLabel townLabel = new JLabel("Town/City: ");
         JLabel parishLabel = new JLabel("Parish: ");
@@ -63,25 +63,32 @@ public class Register {
         register.setBounds(200, 400, 100, 25);
 
         register.addActionListener(e -> {
-            int a = (int)(Math.random()*(200-100+1)+100);
-            String id = "C" + a;
-            String name = nameText.getText();
-            String dob = dobInput.getText();
-            String street = streetText.getText();
-            String town = townText.getText();
-            String parish = parishBox.getSelectedItem().toString();
-            String email = emailText.getText();
-            String tel = telText.getText();
-            String dateOfMembership = dateTime.format(LocalDateTime.now());
-            String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
-            Address address = new Address(street, town, parish);
-            Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
-            try {
-                insertIntoCustomer(customer);
-                JOptionPane.showMessageDialog(null, "Customer inserted", "Success",JOptionPane.INFORMATION_MESSAGE);
-                rFrame.dispose();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+
+            if(nameText.getText().isEmpty() || dobInput.getText().isEmpty() || streetText.getText().isEmpty() || townText.getText().isEmpty() || emailText.getText().isEmpty() || telText.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all fields");
+            }
+            else{
+                int a = (int)(Math.random()*(200-100+1)+100);
+                String id = "C" + a;
+                String name = nameText.getText();
+                String dob = dobInput.getText();
+                String street = streetText.getText();
+                String town = townText.getText();
+                String parish = parishBox.getSelectedItem().toString();
+                String email = emailText.getText();
+                String tel = telText.getText();
+                String dateOfMembership = dateTime.format(LocalDateTime.now());
+                String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
+                Address address = new Address(street, town, parish);
+                Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
+                try {
+                    insertIntoCustomer(customer);
+                    JOptionPane.showMessageDialog(null, "Customer inserted", "Success",JOptionPane.INFORMATION_MESSAGE);
+                    rFrame.dispose();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
             }
         });
 

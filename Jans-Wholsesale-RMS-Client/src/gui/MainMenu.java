@@ -4,10 +4,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import DBconnection.DatabaseConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 public class MainMenu {
 
+    private static Logger logger = LogManager.getLogger(MainMenu.class);
     public MainMenu()
     {
+
         JFrame frame = new JFrame();
 
         JPanel panel = new JPanel();
@@ -24,16 +31,18 @@ public class MainMenu {
         inventoryButton.setBounds(100, 100, 300, 25);
         exitButton.setBounds(100, 150, 300, 25);
 
-
+        logger.info("Main Menu loaded");
         customerDatabase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CustomerDatabase cd = new CustomerDatabase();
+                logger.info("Customer Database button pressed");
             }
         });
 
         inventoryButton.addActionListener(e -> {
             Inventory inventory = new Inventory();
+            logger.info("Inventory button pressed");
         });
 
         exitButton.addActionListener(e -> System.exit(0));

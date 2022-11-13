@@ -24,7 +24,7 @@ public class DatabaseConnection {
     public static Connection connectToDB() throws SQLException
     {
         conn = DriverManager.getConnection(url,user,password);
-        System.out.println("Connected to the database");
+        logger.info("Connected to database");
         return conn;
     }
 
@@ -62,6 +62,7 @@ public class DatabaseConnection {
             Customer customer = new Customer(cusID, cusName, dob,address, telephone, email, dateOfMembership, dateOfMembershipExp);
             cusList.add(customer);
         }
+        logger.info("Customer list retrieved from database");
         return cusList;
     }
 
@@ -100,6 +101,7 @@ public class DatabaseConnection {
             pro = new Products(prodCode,prodName,prodShortDesc,prodLongDesc,prodStockInt,unitPriceDouble);
             prodList.add(pro);
         }
+        logger.info("Product list retrieved from database");
         return prodList;
     }
 
@@ -137,6 +139,7 @@ public class DatabaseConnection {
             staff = new Staff(staffID,name,position,department,dateOfBirth);
             staffList.add(staff);
         }
+        logger.info("Staff list retrieved from database");
         return staffList;
     }
 

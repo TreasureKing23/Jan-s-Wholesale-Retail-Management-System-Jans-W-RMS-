@@ -37,7 +37,7 @@ public class CustomerDatabase {
                 Register reg = new Register();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
-            }
+            } //
         });
 
         viewCustomers.addActionListener(e -> {
