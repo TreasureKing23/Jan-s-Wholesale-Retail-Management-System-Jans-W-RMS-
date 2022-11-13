@@ -11,7 +11,7 @@ public class DatabaseConnection {
     private static Connection conn = null;
     private static String url = "jdbc:mysql://localhost:3306/jans";
     private static String user = "root";
-    private static String password = "mersades123";
+    private static String password = "admin";
 
     private static Customer cus;
     private static Products pro;
