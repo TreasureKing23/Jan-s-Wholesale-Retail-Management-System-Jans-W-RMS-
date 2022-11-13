@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="logging stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/format/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/format/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,7 @@
     <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,20 +47,12 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\reonr\Desktop\Github\Project\Jan-s-Wholesale-Retail-Management-System-Jans-W-RMS-\Project\src" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.MainMenu">
-    <configuration name="DBconn" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DBconnection.DBconn" />
-      <module name="Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DBconnection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DBguitest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.DBguitest" />
       <module name="Project" />
@@ -116,8 +105,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DBconnection.testDB" />
+      <module name="Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DBconnection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.DBconn" />
+      <item itemvalue="Application.testDB" />
       <item itemvalue="Application.DBguitest" />
       <item itemvalue="Application.Driver" />
       <item itemvalue="Application.MainMenu" />
@@ -127,9 +129,9 @@
       <list>
         <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.DBguitest" />
+        <item itemvalue="Application.testDB" />
         <item itemvalue="Application.tabletest" />
         <item itemvalue="Application.Driver" />
-        <item itemvalue="Application.DBconn" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +235,91 @@
       <option name="project" value="LOCAL" />
       <updated>1667860029561</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Customer Registration work">
+      <created>1668115020276</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668115020276</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Customer Registration work">
+      <created>1668115841232</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668115841232</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Customer GUI working, issues with jframe found">
+      <created>1668119786495</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668119786495</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Customer GUI working, issues with jframe found">
+      <created>1668119847599</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668119847599</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add checkout gui file">
+      <created>1668130562737</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668130562737</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Combo box in DBguitest.java">
+      <created>1668132759319</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668132759319</updated>
+    </task>
+    <task id="LOCAL-00020" summary="database connection string adjusted">
+      <created>1668351154996</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668351154996</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Logging added">
+      <created>1668354192874</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668354192874</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added Parish combo box">
+      <created>1668356577553</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668356577553</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Log file fixed">
+      <created>1668357541687</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668357541687</updated>
+    </task>
+    <task id="LOCAL-00024" summary="logging stuff">
+      <created>1668365185016</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668365185016</updated>
+    </task>
+    <task id="LOCAL-00025" summary="logging stuff">
+      <created>1668365249012</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668365249012</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,17 +335,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Customer Registration work" />
+    <MESSAGE value="Customer GUI working, issues with jframe found" />
+    <MESSAGE value="add checkout gui file" />
+    <MESSAGE value="Combo box in DBguitest.java" />
+    <MESSAGE value="database connection string adjusted" />
+    <MESSAGE value="Logging added" />
+    <MESSAGE value="Added Parish combo box" />
+    <MESSAGE value="Log file fixed" />
+    <MESSAGE value="logging stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="logging stuff" />
   </component>
 </project>
