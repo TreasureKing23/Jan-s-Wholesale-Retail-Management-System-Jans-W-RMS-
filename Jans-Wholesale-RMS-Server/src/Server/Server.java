@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -39,7 +40,110 @@ public class Server {
     }
 
     private void waitForRequest(){
+        String action = "";
+        getDatabaseConnection();
+        String id = "";
 
+        Customer customer = null;
+        Invoice invoice = null;
+        Products product = null;
+        Staff staff = null;
+
+        Vector<Customer> customerList = new Vector<>();
+        Vector<Invoice> invoiceList = new Vector<>();
+        Vector<Products> productList = new Vector<>();
+        Vector<Staff> staffList = new Vector<>();
+
+        try{
+            while (true) {
+                connectionSocket = serverSocket.accept();
+                this.configureStreams();
+                try {
+                    action = (String) objIs.readObject();
+                    switch (action) {
+                        case "Add Customer" -> {
+                            customer = (Customer) objIs.readObject();
+                            insertIntoCustomer(customer);
+                            objOs.writeObject(true);
+                        }
+                        case "Delete Customer" -> {
+                            id = (String) objIs.readObject();
+                            deleteCustomer(id);
+                            objOs.writeObject(true);
+                        }
+                        case "Find Customer" -> {
+                            id = (String) objIs.readObject();
+                            customer = findCustomerById(id);
+                            objOs.writeObject(customer);
+                        }
+                        case "List Customers" -> {
+                            customerList = showCustomers();
+                            objOs.writeObject(customerList);
+                        }
+                        case "Add Invoice" -> {
+                            invoice = (Invoice) objIs.readObject();
+                            insertIntoInvoices(invoice);
+                            objOs.writeObject(true);
+                        }
+                        case "Find Invoice" -> {
+                            id = (String) objIs.readObject();
+                            invoice = findInvoiceById(id);
+                            objOs.writeObject(invoice);
+                        }
+                        case "List Invoices" -> {
+                            invoiceList = showInvoices();
+                            objOs.writeObject(invoiceList);
+                        }
+                        case "Add Product" -> {
+                            product = (Products) objIs.readObject();
+                            insertIntoInventory(product);
+                            objOs.writeObject(true);
+                        }
+                        case "Delete Product" -> {
+                            id = (String) objIs.readObject();
+                            deleteProduct(id);
+                            objOs.writeObject(true);
+                        }
+                        case "Find Product" -> {
+                            id = (String) objIs.readObject();
+                            product = findProductById(id);
+                            objOs.writeObject(product);
+                        }
+                        case "List Products" -> {
+                            productList = showInventory();
+                            objOs.writeObject(productList);
+                        }
+                        case "Add Staff" -> {
+                            staff = (Staff) objIs.readObject();
+                            insertIntoStaff(staff);
+                            objOs.writeObject(true);
+                        }
+                        case "Delete Staff" -> {
+                            id = (String) objIs.readObject();
+                            deleteStaff(id);
+                            objOs.writeObject(true);
+                        }
+                        case "Find Staff" -> {
+                            id = (String) objIs.readObject();
+                            staff = findStaffById(id);
+                            objOs.writeObject(staff);
+                        }
+                        case "List Staff" -> {
+                            staffList = showStaff();
+                            objOs.writeObject(staffList);
+                        }
+                    }
+                } catch (ClassNotFoundException | ClassCastException ex){
+                    ex.printStackTrace();
+                }
+                this.closeConnection();
+            }
+        } catch (EOFException ex){
+            System.out.println("Client has terminated connections with the server");
+            ex.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 
     private void configureStreams(){
@@ -54,7 +158,7 @@ public class Server {
     private static Connection getDatabaseConnection() {
         if(dBConn == null){
             try {
-                String url = "jbdc:mysql://localhost:3306/jans";
+                String url = "jdbc:mysql://localhost:3306/jans";
                 dBConn = DriverManager.getConnection(url, "root", "admin");
                 JOptionPane.showMessageDialog(null, "Database Connection Successful", "CONNECTION STATUS", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex){
@@ -224,7 +328,7 @@ public class Server {
         try{
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
-            while (result.next() && secondResult.next()){
+            while (result.next()){
                 product.setProdCode(result.getString("ProductCode"));
                 product.setProdName(result.getString("Name"));
                 product.setProdShortDesc(result.getString("ShortDesc"));
@@ -297,7 +401,7 @@ public class Server {
         try {
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
-            while (result.next() && secondResult.next()) {
+            while (result.next()) {
                 staff.setStaffID(result.getString("StaffID"));
                 staff.setName(result.getString("Name"));
                 staff.setPosition(result.getString("Position"));
@@ -349,4 +453,28 @@ public class Server {
         }
         return invoice;
     }
+
+    public Vector<Invoice> showInvoices() {
+        Vector<Invoice> invoiceList = new Vector<>();
+        Invoice invoice = new Invoice();
+        String query = "SELECT * FROM invoice";
+        try {
+            stmt = dBConn.createStatement();
+            result = stmt.executeQuery(query);
+            while (result.next()) {
+                invoice.setInvoiceNo(result.getInt("InvoiceNumber"));
+                invoice.setBillingDate(result.getString("BillingDate"));
+                invoice.setItem(result.getString("Item"));
+                invoice.setQuantity(result.getInt("Quantity"));
+                invoice.setCashierName(result.getString("Cashier"));
+                invoice.setCustomerName(result.getString("Customer"));
+
+                invoiceList.add(invoice);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return invoiceList;
+    }
+
 }

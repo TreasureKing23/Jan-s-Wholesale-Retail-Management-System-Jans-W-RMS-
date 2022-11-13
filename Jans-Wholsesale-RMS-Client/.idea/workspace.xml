@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/resources/log4j-api-2.13.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/resources/log4j-core-2.13.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/resources/mysql-connector-j-8.0.31.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/format/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Invoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Products.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/Jans-Wholesale-RMS-Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/Jans-Wholesale-RMS-Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnection/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnection/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnection/testDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnection/testDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CustomerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CustomerDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DBguitest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DBguitest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
