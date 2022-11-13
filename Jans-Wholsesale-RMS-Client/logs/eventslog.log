@@ -1,0 +1,17 @@
+[ INFO] 2022-11-13 17:06:18.023 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:06:18.055 [AWT-EventQueue-0] DatabaseConnection - Customer list retrieved from database
+[ INFO] 2022-11-13 17:06:19.498 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:09:15.633 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:09:15.655 [AWT-EventQueue-0] DatabaseConnection - Customer list retrieved from database
+[ INFO] 2022-11-13 17:09:17.690 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:54:51.613 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:54:51.634 [AWT-EventQueue-0] DatabaseConnection - Customer list retrieved from database
+[ INFO] 2022-11-13 17:55:16.339 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 17:55:16.341 [AWT-EventQueue-0] DatabaseConnection - Customer list retrieved from database
+[ INFO] 2022-11-13 18:06:15.558 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 18:06:15.584 [AWT-EventQueue-0] DatabaseConnection - Customer list retrieved from database
+[ INFO] 2022-11-13 18:42:41.342 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 18:48:32.668 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 18:49:59.570 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 18:53:38.211 [AWT-EventQueue-0] DatabaseConnection - Connected to database
+[ INFO] 2022-11-13 18:54:23.761 [AWT-EventQueue-0] DatabaseConnection - Connected to database

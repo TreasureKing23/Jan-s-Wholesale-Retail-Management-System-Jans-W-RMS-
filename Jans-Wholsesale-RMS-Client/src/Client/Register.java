@@ -1,4 +1,4 @@
-package gui;
+package Client;
 import Domain.*;
 import DBconnection.*;
 import format.Address;
@@ -81,13 +81,13 @@ public class Register {
                 String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
                 Address address = new Address(street, town, parish);
                 Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
-                try {
-                    insertIntoCustomer(customer);
-                    JOptionPane.showMessageDialog(null, "Customer inserted", "Success",JOptionPane.INFORMATION_MESSAGE);
-                    rFrame.dispose();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+
+                Client client = new Client();
+                client.sendAction("Add Customer");
+                client.sendObject(customer);
+                client.receiveResponse();
+                client.closeConnection();
+                rFrame.dispose();
 
             }
         });

@@ -1,10 +1,9 @@
-package gui;
+package Client;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.util.*;
 
 import DBconnection.*;
@@ -16,13 +15,11 @@ public class Inventory {
 
         DatabaseConnection dbconn = new DatabaseConnection();
         Enumeration enu = null;
-        try {
-            dbconn.connectToDB();
-            Vector<Products> products = dbconn.showInventory();
-            enu = products.elements();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Client client = new Client();
+        client.sendAction("List Products");
+        Vector<Products> products = (Vector<Products>) client.receiveObject();
+        client.closeConnection();
+        enu = products.elements();
         Enumeration finalEnu = enu; 
 
 

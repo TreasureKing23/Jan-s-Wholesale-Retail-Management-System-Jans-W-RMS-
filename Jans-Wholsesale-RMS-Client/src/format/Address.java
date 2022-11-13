@@ -1,6 +1,8 @@
 package format;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private String street;
     private String town;
     private String parish;

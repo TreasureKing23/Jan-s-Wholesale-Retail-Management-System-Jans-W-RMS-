@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Server {
@@ -22,7 +23,6 @@ public class Server {
     private static Connection dBConn = null;
     private Statement stmt;
     private ResultSet result = null;
-    private ResultSet secondResult = null;
 
     private static Logger logger = LogManager.getLogger(Server.class);
 
@@ -247,8 +247,9 @@ public class Server {
         String query2 = "SELECT * FROM address";
         try{
             stmt = dBConn.createStatement();
+            Statement secondStmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
-            secondResult = stmt.executeQuery(query2);
+            ResultSet secondResult = secondStmt.executeQuery(query2);
             while (result.next() && secondResult.next()){
                 customer.setCusID(result.getString("CustomerID"));
                 customer.setCusName(result.getString("Name"));

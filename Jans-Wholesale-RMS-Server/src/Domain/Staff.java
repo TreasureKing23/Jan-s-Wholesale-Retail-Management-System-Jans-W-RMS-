@@ -14,7 +14,7 @@ public class Staff {
       this.position = "";
       this.department = "";
       this.dateOfBirth = "";
-    };
+    }
 
     public Staff(String name, String staffID, String position, String department, String dateOfBirth) {
         this.name = name;

@@ -1,4 +1,4 @@
-package gui;
+package Client;
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.Enumeration;

@@ -1,4 +1,4 @@
-package gui;
+package Client;
 
 import DBconnection.DatabaseConnection;
 import Domain.Customer;
@@ -16,7 +16,10 @@ public class CustomerDatabase {
         Enumeration enu = null;
         try {
             dbconn.connectToDB();
-            Vector<Customer> cus = dbconn.showCustomers();
+            Client client = new Client();
+            client.sendAction("List Customers");
+            Vector<Customer> cus = (Vector<Customer>) client.receiveObject();
+            client.closeConnection();
             enu = cus.elements();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Staff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/format/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/format/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/format/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/format/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Checkout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Checkout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CustomerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CustomerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/DBguitest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/DBguitest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +44,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FoVg0zB0Z1QOQmKUrf7hZWbcvH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,11 +79,11 @@
       </method>
     </configuration>
     <configuration name="DBguitest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="gui.DBguitest" />
+      <option name="MAIN_CLASS_NAME" value="Client.DBguitest" />
       <module name="Jans-Wholsale-RMS-Client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="gui.*" />
+          <option name="PATTERN" value="Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,11 +105,11 @@
       </method>
     </configuration>
     <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="gui.MainMenu" />
+      <option name="MAIN_CLASS_NAME" value="Client.MainMenu" />
       <module name="Jans-Wholsale-RMS-Client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="gui.*" />
+          <option name="PATTERN" value="Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,7 +122,7 @@
       <module name="Jans-Wholsale-RMS-Client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="gui.*" />
+          <option name="PATTERN" value="Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -250,5 +267,21 @@
     </ignored-roots>
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/CustomerDatabase.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Client/Client.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
