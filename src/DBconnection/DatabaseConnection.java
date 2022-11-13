@@ -3,12 +3,16 @@ import entities.*;
 import format.Address;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.Vector;
 
 
 public class DatabaseConnection {
     private static Connection conn = null;
+    private static Logger logger = LogManager.getLogger(DatabaseConnection.class);
     private static String url = "jdbc:mysql://localhost:3306/jans";
     private static String user = "root";
     private static String password = "admin";
@@ -24,20 +28,6 @@ public class DatabaseConnection {
         return conn;
     }
 
-//    public static Connection showInventory() throws SQLException {
-//        String query = "SELECT * FROM inventory";
-//        PreparedStatement ps = conn.prepareStatement(query);
-//        ResultSet rs = ps.executeQuery();
-//        while(rs.next()) {
-//            String id = rs.getString(1);
-//            String name = rs.getString(2);
-//            String shortDesc = rs.getString(3);
-//            String longDesc = rs.getString(4);
-//            String stock = rs.getString(5);
-//            String price = rs.getString(6);
-//        }
-//        return conn;
-//    }
 
     public static void insertIntoCustomer(Customer cus) throws SQLException {
         Statement statement = conn.createStatement();
@@ -45,6 +35,7 @@ public class DatabaseConnection {
         String query2 = "Insert into address (CustomerID,Street,Town,Parish) VALUES ('"+cus.getCusID()+"','"+cus.getAddress().getStreet()+"','"+cus.getAddress().getTown()+"','"+cus.getAddress().getParish()+"')";
         statement.executeUpdate(query);
         statement.executeUpdate(query2);
+        logger.info("Customer added to the database");
     }
 
     public static Vector<Customer> showCustomers() throws SQLException {
@@ -74,12 +65,20 @@ public class DatabaseConnection {
         return cusList;
     }
 
+    public static Connection deleteCustomer(String id) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "DELETE FROM customer WHERE CustomerID = '"+id+"'";
+        statement.executeUpdate(query);
+        logger.info("Customer deleted from the database");
+        return conn;
+    }
 
 
     public static  Connection insertIntoInventory(Products pro) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "INSERT INTO inventory Values ('"+pro.getProdCode()+"','"+pro.getProdName()+"','"+pro.getProdShortDesc()+"','"+pro.getProdLongDesc()+"','"+pro.getProdStock()+"','"+pro.getUnitPrice()+"')";
         statement.executeUpdate(query);
+        logger.info("Product added to the database");
         return conn;
     }
 
@@ -110,6 +109,7 @@ public class DatabaseConnection {
         Statement statement = conn.createStatement();
         String query = "DELETE FROM inventory WHERE ProductCode = '"+id+"'";
         statement.executeUpdate(query);
+        logger.info("Product deleted from the database");
         return conn;
     }
 
@@ -117,6 +117,7 @@ public class DatabaseConnection {
         Statement statement = conn.createStatement();
         String query = "INSERT INTO Staff Values ('"+staff.getStaffID()+"','"+staff.getName()+"','"+staff.getPosition()+"','"+staff.getDepartment()+"','"+staff.getDateOfBirth().toString()+"')";
         statement.executeUpdate(query);
+        logger.info("Staff added to the database");
         return conn;
     }
 
@@ -143,6 +144,7 @@ public class DatabaseConnection {
         Statement statement = conn.createStatement();
         String query = "DELETE FROM staff WHERE StaffID = '"+id+"'";
         statement.executeUpdate(query);
+        logger.info("Staff deleted from the database");
         return conn;
     }
 
