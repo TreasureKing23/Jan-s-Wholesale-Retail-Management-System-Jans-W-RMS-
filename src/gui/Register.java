@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import static DBconnection.DatabaseConnection.insertIntoCustomer;
 
@@ -19,8 +20,9 @@ public class Register {
 
         DatabaseConnection dbconn = new DatabaseConnection();
         dbconn.connectToDB();
-  //      DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        String parishList[] = {"Kingston","St. Andrew","St. Thomas","Portland","St. Mary","St. Ann","Trelawny","St. James","Hanover","Westmoreland","St. Elizabeth","Manchester","Clarendon"};
         JDialog rFrame = new JDialog();
         JPanel rPanel = new JPanel();
 
@@ -37,7 +39,7 @@ public class Register {
         JFormattedTextField dobInput = new JFormattedTextField(df);
         JTextField streetText = new JTextField();
         JTextField townText = new JTextField();
-        JTextField parishText = new JTextField();
+        JComboBox  parishBox = new JComboBox(parishList);
         JTextField emailText = new JTextField();
         JTextField telText = new JTextField();
 
@@ -53,7 +55,7 @@ public class Register {
         townLabel.setBounds(20, 190,100,25);
         townText.setBounds(120, 190,200,25);
         parishLabel.setBounds(20, 220,100,25);
-        parishText.setBounds(120, 220,200,25);
+        parishBox.setBounds(120, 220,200,25);
         emailAddressLabel.setBounds(20, 250,100,25);
         emailText.setBounds(120, 250,200,25);
         telLabel.setBounds(20, 280,100,25);
@@ -68,11 +70,11 @@ public class Register {
             String dob = dobInput.getText();
             String street = streetText.getText();
             String town = townText.getText();
-            String parish = parishText.getText();
+            String parish = parishBox.getSelectedItem().toString();
             String email = emailText.getText();
             String tel = telText.getText();
-            String dateOfMembership = df.format(LocalDateTime.now());
-            String dateOfMembershipExp = df.format(LocalDateTime.now().plusYears(1));
+            String dateOfMembership = dateTime.format(LocalDateTime.now());
+            String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));
             Address address = new Address(street, town, parish);
             Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);
             try {
@@ -98,7 +100,7 @@ public class Register {
         rPanel.add(townLabel);
         rPanel.add(townText);
         rPanel.add(parishLabel);
-        rPanel.add(parishText);
+        rPanel.add(parishBox);
         rPanel.add(emailAddressLabel);
         rPanel.add(emailText);
         rPanel.add(telLabel);
