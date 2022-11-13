@@ -1,6 +1,5 @@
 package DBconnection;
-import entities.Customer;
-import entities.Products;
+import Domain.Customer;
 import format.Address;
 
 import  java.sql.*;

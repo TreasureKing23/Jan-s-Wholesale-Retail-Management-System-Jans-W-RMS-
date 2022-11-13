@@ -1,5 +1,5 @@
 package DBconnection;
-import entities.*;
+import Domain.*;
 import format.Address;
 
 

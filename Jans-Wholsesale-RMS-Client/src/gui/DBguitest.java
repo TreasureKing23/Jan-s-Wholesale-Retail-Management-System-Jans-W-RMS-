@@ -1,14 +1,11 @@
 package gui;
 import javax.swing.*;
-import javax.swing.table.*;
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Vector;
 
 import DBconnection.*;
-import entities.Customer;
-import entities.Products;
+import Domain.Products;
 
 public class DBguitest {
 

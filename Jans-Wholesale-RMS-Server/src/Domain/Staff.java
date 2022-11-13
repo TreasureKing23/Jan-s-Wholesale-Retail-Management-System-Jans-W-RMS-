@@ -1,4 +1,4 @@
-package entities;
+package Domain;
 
 public class Staff {
 
@@ -7,6 +7,14 @@ public class Staff {
     private String position;
     private String department;
     private String dateOfBirth;
+
+    public Staff(){
+      this.name = "";
+      this.staffID = "";
+      this.position = "";
+      this.department = "";
+      this.dateOfBirth = "";
+    };
 
     public Staff(String name, String staffID, String position, String department, String dateOfBirth) {
         this.name = name;

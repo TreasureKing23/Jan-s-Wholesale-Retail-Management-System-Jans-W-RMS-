@@ -1,7 +1,7 @@
 package DBconnection;
 
 
-import entities.Customer;
+import Domain.Customer;
 import format.Address;
 
 import java.sql.SQLException;

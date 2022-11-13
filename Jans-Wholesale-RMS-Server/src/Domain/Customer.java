@@ -1,8 +1,9 @@
-package entities;
+package Domain;
 
 
 import format.*;
-import  java.io.Serializable;
+
+import java.io.Serializable;
 
 public class Customer implements Serializable {
 

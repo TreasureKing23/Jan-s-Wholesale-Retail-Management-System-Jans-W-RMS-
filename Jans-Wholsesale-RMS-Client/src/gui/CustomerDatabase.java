@@ -1,8 +1,7 @@
 package gui;
 
 import DBconnection.DatabaseConnection;
-import entities.Customer;
-import entities.Products;
+import Domain.Customer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
