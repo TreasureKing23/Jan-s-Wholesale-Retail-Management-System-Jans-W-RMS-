@@ -264,6 +264,7 @@ public class Server {
                 customer.getAddress().setParish(secondResult.getString("Parish"));
 
                 customerList.add(customer);
+                customer = new Customer();
             }
         } catch (SQLException ex){
             ex.printStackTrace();
@@ -338,6 +339,7 @@ public class Server {
                 product.setUnitPrice(result.getFloat("UnitPrice"));
 
                 inventory.add(product);
+                product = new Products();
             }
         } catch (SQLException ex){
             ex.printStackTrace();
@@ -410,6 +412,7 @@ public class Server {
                 staff.setDateOfBirth(result.getString("DOB"));
 
                 staffList.add(staff);
+                staff = new Staff();
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -471,6 +474,7 @@ public class Server {
                 invoice.setCustomerName(result.getString("Customer"));
 
                 invoiceList.add(invoice);
+                invoice = new Invoice();
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Domain/Staff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/format/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/format/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/format/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/format/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Checkout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Checkout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CustomerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CustomerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DBguitest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/DBguitest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
