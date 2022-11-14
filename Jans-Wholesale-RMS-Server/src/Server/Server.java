@@ -1,7 +1,6 @@
 package Server;
 
 import Domain.*;
-import format.Address;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +11,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class Server {
@@ -229,10 +227,10 @@ public class Server {
         String query = "DELETE FROM customer WHERE CustomerID = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
-            if(stmt.executeUpdate(query) == 1)
+            if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
                 logger.info("Customer deleted from the database");
-            else
+            } else
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
@@ -362,10 +360,10 @@ public class Server {
         String query = "DELETE FROM inventory WHERE ProductCode = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
-            if(stmt.executeUpdate(query) == 1)
+            if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
                 logger.info("Product deleted from the database");
-            else
+            } else
                 objOs.writeObject(false);
                 logger.info("Product not deleted from the database");
         } catch (IOException | SQLException ex){
@@ -456,10 +454,10 @@ public class Server {
         String query = "DELETE FROM staff WHERE StaffID = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
-            if(stmt.executeUpdate(query) == 1)
+            if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
                 logger.info("Staff deleted from the database");
-            else
+            } else
                 objOs.writeObject(false);
                 logger.info("Staff not deleted from the database");
         } catch (IOException | SQLException ex){
@@ -556,10 +554,10 @@ public class Server {
         String query = "DELETE FROM checkout WHERE StaffID = " + id ;
         try {
             stmt = dBConn.createStatement();
-            if(stmt.executeUpdate(query) == 1)
+            if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
-            logger.info("Invoice deleted from the database");
-            else
+                logger.info("Invoice deleted from the database");
+            } else
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
