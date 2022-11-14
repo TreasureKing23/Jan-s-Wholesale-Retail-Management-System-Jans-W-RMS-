@@ -184,8 +184,10 @@ public class Server {
                 String url = "jdbc:mysql://localhost:3306/jans";
                 dBConn = DriverManager.getConnection(url, "root", "admin");
                 JOptionPane.showMessageDialog(null, "Database Connection Successful", "CONNECTION STATUS", JOptionPane.INFORMATION_MESSAGE);
+                logger.info("Database Connection Successful");
             } catch (SQLException ex){
                 JOptionPane.showMessageDialog(null, "Could not connect to database", "CONNECTION FAILURE", JOptionPane.ERROR_MESSAGE);
+                logger.error("Could not connect to database");
             }
         }
         return dBConn;
@@ -219,6 +221,7 @@ public class Server {
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
+            logger.error("Customer could not be added to the database");
         }
     }
 
@@ -228,10 +231,12 @@ public class Server {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
                 objOs.writeObject(true);
+                logger.info("Customer deleted from the database");
             else
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
+            logger.error("Customer could not be deleted from the database");
         }
     }
 
@@ -257,8 +262,10 @@ public class Server {
                 customer.getAddress().setCity(result.getString("Town"));
                 customer.getAddress().setParish(result.getString("Parish"));
             }
+            logger.info("Customer found");
         } catch (SQLException ex){
             ex.printStackTrace();
+            logger.error("Error Searching for Customer");
         }
         return customer;
     }
@@ -287,26 +294,27 @@ public class Server {
         String query = "SELECT * FROM customer";
         String query2 = "SELECT * FROM address";
         try{
-            stmt = dBConn.createStatement();
-            Statement secondStmt = dBConn.createStatement();
-            result = stmt.executeQuery(query);
-            ResultSet secondResult = secondStmt.executeQuery(query2);
-            while (result.next() && secondResult.next()){
-                customer.setCusID(result.getString("CustomerID"));
-                customer.setCusName(result.getString("Name"));
-                customer.setDob(result.getString("DOB"));
-                customer.setTelephone(result.getString("Telephone"));
-                customer.setEmail(result.getString("EmailAddress"));
-                customer.setDateOfMembership(result.getString("DateOfMembership"));
-                customer.setGetDateOfMembershipExp(result.getString("MembershipExpiryDate"));
+            PreparedStatement ps = dBConn.prepareStatement(query);
+            PreparedStatement ps2 = dBConn.prepareStatement(query2);
+            ResultSet rs = ps.executeQuery();
+            ResultSet rs2 = ps2.executeQuery();
+            while (rs.next() && rs2.next()){
+                customer.setCusID(rs.getString("CustomerID"));
+                customer.setCusName(rs.getString("Name"));
+                customer.setDob(rs.getString("DOB"));
+                customer.setTelephone(rs.getString("Telephone"));
+                customer.setEmail(rs.getString("EmailAddress"));
+                customer.setDateOfMembership(rs.getString("DateOfMembership"));
+                customer.setGetDateOfMembershipExp(rs.getString("MembershipExpiryDate"));
 
-                customer.getAddress().setStreet(secondResult.getString("Street"));
-                customer.getAddress().setCity(secondResult.getString("Town"));
-                customer.getAddress().setParish(secondResult.getString("Parish"));
+                customer.getAddress().setStreet(rs2.getString("Street"));
+                customer.getAddress().setCity(rs2.getString("Town"));
+                customer.getAddress().setParish(rs2.getString("Parish"));
 
                 customerList.add(customer);
                 customer = new Customer();
             }
+            logger.info("Customer list sent to the client");
         } catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -328,6 +336,7 @@ public class Server {
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
+            logger.error("Error adding product to the database");
         }
     }
 
@@ -345,6 +354,7 @@ public class Server {
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
+            logger.error("Error updating product in the database");
         }
     }
 
@@ -354,8 +364,10 @@ public class Server {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
                 objOs.writeObject(true);
+                logger.info("Product deleted from the database");
             else
                 objOs.writeObject(false);
+                logger.info("Product not deleted from the database");
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
         }
@@ -446,8 +458,10 @@ public class Server {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
                 objOs.writeObject(true);
+                logger.info("Staff deleted from the database");
             else
                 objOs.writeObject(false);
+                logger.info("Staff not deleted from the database");
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
         }
@@ -465,9 +479,12 @@ public class Server {
                 staff.setPosition(result.getString("Position"));
                 staff.setDepartment(result.getString("Department"));
                 staff.setDateOfBirth(result.getString("DOB"));
+
             }
+            logger.info("Staff found in the database");
         } catch (SQLException ex){
             ex.printStackTrace();
+            logger.error("Staff not found in the database");
         }
         return staff;
     }
@@ -485,12 +502,13 @@ public class Server {
                 staff.setPosition(result.getString("Position"));
                 staff.setDepartment(result.getString("Department"));
                 staff.setDateOfBirth(result.getString("DOB"));
-
                 staffList.add(staff);
                 staff = new Staff();
             }
+            logger.info("Staff list retrieved from the database");
         } catch (SQLException ex) {
             ex.printStackTrace();
+            logger.error("Error retrieving staff list from the database");
         }
         return staffList;
     }
@@ -526,6 +544,7 @@ public class Server {
                 invoice.setQuantity(result.getInt("Quantity"));
                 invoice.setCashierName(result.getString("Cashier"));
                 invoice.setCustomerName(result.getString("Customer"));
+                logger.info("Invoice found in the database");
             }
         } catch (SQLException ex){
             ex.printStackTrace();
@@ -539,6 +558,7 @@ public class Server {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
                 objOs.writeObject(true);
+            logger.info("Invoice deleted from the database");
             else
                 objOs.writeObject(false);
         } catch (IOException | SQLException ex){
