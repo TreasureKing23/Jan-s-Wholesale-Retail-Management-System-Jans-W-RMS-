@@ -96,6 +96,11 @@ public class Server {
                             invoice = findInvoiceById(id);
                             objOs.writeObject(invoice);
                         }
+                        case "Delete Invoice" -> {
+                            id = (String) objIs.readObject();
+                            deleteInvoice(id);
+                            objOs.writeObject(true);
+                        }
                         case "List Invoices" -> {
                             invoiceList = showInvoices();
                             objOs.writeObject(invoiceList);
@@ -492,7 +497,7 @@ public class Server {
 
     // INVOICE ACTIONS
     public void insertIntoInvoices(Invoice invoice){
-        String url = "INSERT INTO Invoice Values ('" + invoice.getInvoiceNo() + "','" + invoice.getBillingDate() + "','" +
+        String url = "INSERT INTO checkout Values ('" + invoice.getInvoiceNo() + "','" + invoice.getBillingDate() + "','" +
                 invoice.getItem() + "','" + invoice.getQuantity() + "','" + invoice.getCashierName() + "','" + invoice.getCustomerName() + "')";
         try {
             stmt = dBConn.createStatement();
@@ -510,7 +515,7 @@ public class Server {
 
     public Invoice findInvoiceById(String id){
         Invoice invoice = new Invoice();
-        String query = "SELECT * FROM invoice WHERE InvoiceNumber = " + id;
+        String query = "SELECT * FROM checkout WHERE InvoiceNumber = " + id;
         try{
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
@@ -528,10 +533,23 @@ public class Server {
         return invoice;
     }
 
+    public void deleteInvoice(String id){
+        String query = "DELETE FROM checkout WHERE StaffID = " + id ;
+        try {
+            stmt = dBConn.createStatement();
+            if(stmt.executeUpdate(query) == 1)
+                objOs.writeObject(true);
+            else
+                objOs.writeObject(false);
+        } catch (IOException | SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
     public Vector<Invoice> showInvoices() {
         Vector<Invoice> invoiceList = new Vector<>();
         Invoice invoice = new Invoice();
-        String query = "SELECT * FROM invoice";
+        String query = "SELECT * FROM checkout";
         try {
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);

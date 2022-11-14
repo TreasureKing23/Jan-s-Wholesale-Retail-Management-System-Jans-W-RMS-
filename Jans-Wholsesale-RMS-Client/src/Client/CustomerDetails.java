@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 
 public class CustomerDetails {
     public CustomerDetails(String id){

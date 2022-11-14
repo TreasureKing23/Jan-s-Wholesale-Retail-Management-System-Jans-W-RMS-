@@ -26,24 +26,31 @@ public class Inventory {
         JFrame iFrame = new JFrame();
 
         JPanel iPanel = new JPanel();
+        JLabel label = new JLabel("Inventory");
+        label.setBounds(250,40,200,25);
 
-        JButton add = new JButton("Add");
-        add.setBounds(50, 50, 100, 25);
+        JButton add = new JButton("Add Product");
+        add.setBounds(100, 100, 300, 25);
 
-        JButton view = new JButton("View");
-        view.setBounds(50, 100, 100, 25);
+        JButton view = new JButton("View Products");
+        view.setBounds(100, 150, 300, 25);
 
-        JButton goback = new JButton("Return");
-        goback.setBounds(50, 150, 100, 25);
+        JButton pDetails = new JButton("Search Product");
+        pDetails.setBounds(100, 200, 300, 25);
 
-        goback.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                iFrame.dispose();
-            }
+        add.addActionListener(e -> {
+            new AddItem();
         });
 
-
+        pDetails.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String searchID = JOptionPane.showInputDialog(null, "Enter Product ID", "ENTER INPUT", JOptionPane.QUESTION_MESSAGE);
+                if(searchID != null){
+                    new ProductDetails(searchID);
+                }
+            }
+        });
 
         view.addActionListener(new ActionListener() {
             @Override
@@ -73,26 +80,15 @@ public class Inventory {
             }
         });
 
-
-
-
         iPanel.setSize(500, 500);
-
-
-
+        iPanel.add(label);
         iPanel.add(add);
         iPanel.add(view);
-        iPanel.add(goback);
-
+        iPanel.add(pDetails);
         iPanel.setLayout(null);
-
         iFrame.add(iPanel);
-
         iFrame.setVisible(true);
         iFrame.setSize(500, 500);
         iFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-
-
     }
 }

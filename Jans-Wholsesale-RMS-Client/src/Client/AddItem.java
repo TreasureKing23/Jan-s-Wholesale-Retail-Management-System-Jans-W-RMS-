@@ -9,10 +9,7 @@ import java.sql.SQLException;
 
 public class AddItem {
 
-    public AddItem() throws SQLException {
-
-        DatabaseConnection dbconn = new DatabaseConnection();
-        dbconn.connectToDB();
+    public AddItem() {
 
         JDialog addFrame= new JDialog();
         JPanel addPanel = new JPanel();
@@ -56,12 +53,15 @@ public class AddItem {
             float price = Float.parseFloat(priceText.getText());
 
             Products product = new Products(id, name, shortDesc, longDesc, quantity, price);
-            try {
-                dbconn.insertIntoInventory(product);
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            Client client = new Client();
+            client.sendAction("Add Product");
+            client.sendObject(product);
+            client.receiveResponse();
+            client.closeConnection();
         });
+
+        addPanel.setLayout(null);
+        addPanel.setSize(400,400);
 
         addPanel.add(label);
         addPanel.add(nameLabel);
@@ -77,17 +77,9 @@ public class AddItem {
         addPanel.add(register);
 
         addFrame.add(addPanel);
+        addFrame.setLayout(null);
         addFrame.setSize(400,400);
-        addFrame.setLocationRelativeTo(null);
         addFrame.setVisible(true);
         addFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-
-
-
-    }
-
-    public static void main(String[] args) throws SQLException {
-        AddItem addItem = new AddItem();
     }
 }

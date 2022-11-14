@@ -1,4 +1,5 @@
 package Client;
+import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
@@ -24,13 +25,15 @@ public class MainMenu {
         JButton customerDatabase = new JButton("Customer Database");
         JButton inventoryButton = new JButton("Inventory");
         JButton staffDatabase = new JButton("Staff Database");
+        JButton invoiceButton = new JButton("Invoices");
         JButton exitButton = new JButton("Exit");
 
         label.setBounds(220,20,200,25);
         customerDatabase.setBounds(100, 50, 300, 25);
         inventoryButton.setBounds(100, 100, 300, 25);
         staffDatabase.setBounds(100, 150, 300, 25);
-        exitButton.setBounds(100, 150, 300, 25);
+        invoiceButton.setBounds(100,200,300,25);
+        exitButton.setBounds(100, 250, 300, 25);
 
         logger.info("Main Menu loaded");
         customerDatabase.addActionListener(new ActionListener() {
@@ -51,12 +54,17 @@ public class MainMenu {
             logger.info("Staff Database button pressed");
         });
 
+        invoiceButton.addActionListener(e -> {
+
+        });
+
         exitButton.addActionListener(e -> System.exit(0));
 
         panel.add(label);
         panel.add(customerDatabase);
         panel.add(inventoryButton);
         panel.add(staffDatabase);
+        panel.add(invoiceButton);
         panel.add(exitButton);
         panel.setLayout(null);
 

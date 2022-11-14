@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/eventslog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/eventslog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/eventslog.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/AddItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/AddItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/CustomerDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Employ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Employ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/StaffDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/StaffDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CheckoutProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CheckoutProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/log4j2.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

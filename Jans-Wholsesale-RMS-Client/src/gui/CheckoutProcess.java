@@ -1,5 +1,6 @@
 package gui;
 
+import Client.Client;
 import DBconnection.DatabaseConnection;
 import Domain.Customer;
 import Domain.Invoice;
@@ -21,11 +22,11 @@ public class CheckoutProcess {
 
         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         int invoiceNumber = (int)(Math.random()*(200-100+1)+100);
+        Client client = new Client();
 
-        DatabaseConnection dbconn = new DatabaseConnection();
-        dbconn.connectToDB();
-
-        Vector<Products> products = dbconn.showInventory();
+        client.sendAction("List Products");
+        Vector<Products> products = (Vector<Products>) client.receiveObject();
+        client.closeConnection();
         Enumeration e = products.elements();
         Vector<String> productName = new Vector<String>();
         Vector<Double> prices = new Vector<>();
@@ -95,11 +96,6 @@ public class CheckoutProcess {
             subtotalField.setText(Double.toString(price1 * quantity1));
         });
 
-
-
-
-
-
         panel.setLayout(null);
         panel.setSize(500, 500);
         panel.setVisible(true);
@@ -123,7 +119,10 @@ public class CheckoutProcess {
         switch (choice) {
             case 1 -> {
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                Vector<Customer> customerName = dbconn.showCustomers();
+                Client sclient = new Client();
+                sclient.sendAction("List Customers");
+                Vector<Customer> customerName = (Vector<Customer>) sclient.receiveObject();
+                sclient.closeConnection();
                 Enumeration ce = customerName.elements();
                 Vector<String> cRow = new Vector<>();
                 while (ce.hasMoreElements()) {
@@ -147,11 +146,11 @@ public class CheckoutProcess {
                         String Cashier = "Cashier";
 
                         Invoice invoice = new Invoice(invoiceNumber,billingDate,itemName, quantity12,Cashier, customerName1);
-                        try {
-                            dbconn.insertIntoInvoice(invoice);
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        }
+                        Client client1 = new Client();
+                        client1.sendAction("Add Invoice");
+                        client1.sendObject(invoice);
+                        client1.receiveResponse();
+                        client1.closeConnection();
 
 
                     }
@@ -172,13 +171,11 @@ public class CheckoutProcess {
                             String Cashier = "Cashier";
 
                             Invoice invoice = new Invoice(invoiceNumber,billingDate,itemName,quantity,Cashier, customerName);
-                            try {
-                                dbconn.insertIntoInvoice(invoice);
-                            } catch (SQLException ex) {
-                                throw new RuntimeException(ex);
-                            }
-
-
+                            Client client1 = new Client();
+                            client1.sendAction("Add Invoice");
+                            client1.sendObject(invoice);
+                            client1.receiveResponse();
+                            client1.closeConnection();
                         }
                     }
                 });
@@ -190,12 +187,10 @@ public class CheckoutProcess {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    dbconn.cancelSale(invoiceNumber);
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
-
+            Client client1 = new Client();
+            client1.sendAction("Delete Invoice");
+            client1.receiveResponse();
+            client1.closeConnection();
             }
         });
 
