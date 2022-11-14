@@ -152,6 +152,29 @@ public class DatabaseConnection {
     }
 
 
+    public  static  Connection insertIntoInvoice(Invoice invoice) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "INSERT INTO checkout Values ('"+invoice.getInvoiceNo()+"','"+invoice.getBillingDate()+"','"+invoice.getItem()+"','"+invoice.getQuantity()+"','"+invoice.getCashierName()+"', '"+invoice.getCustomerName()+"')";
+        statement.executeUpdate(query);
+        logger.info("Invoice added to the database");
+        return conn;
+    }
+
+
+    public static Connection cancelSale(int invoice) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "DELETE FROM checkout WHERE InvoiceNumber = '"+invoice+"'";
+
+        try {
+            statement.executeUpdate(query);
+            logger.info("Transaction deleted from the database");
+        } catch (SQLException e) {
+            logger.error("Transaction not deleted from the database");
+            e.printStackTrace();
+        }
+        return conn;
+    }
+
 
 
 
