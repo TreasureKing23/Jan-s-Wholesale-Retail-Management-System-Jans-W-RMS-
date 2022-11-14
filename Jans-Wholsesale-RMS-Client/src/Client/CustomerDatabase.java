@@ -33,7 +33,7 @@ public class CustomerDatabase {
 
         JButton viewCustomers = new JButton("View Customers");
         JButton registerCustomers = new JButton("Register Customer");
-        JButton removeCustomer = new JButton("Remove Customer");
+        JButton searchCustomer = new JButton("Search Customer");
 
         registerCustomers.addActionListener(e -> {
             try {
@@ -71,17 +71,24 @@ public class CustomerDatabase {
             viewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         });
 
+        searchCustomer.addActionListener(e ->{
+            String searchID = JOptionPane.showInputDialog(null, "Enter Customer ID", "ENTER INPUT", JOptionPane.QUESTION_MESSAGE);
+            if(searchID != null){
+                new CustomerDetails(searchID);
+            }
+        });
+
         label.setBounds(200,40,300,20);
         viewCustomers.setBounds(100,100,300,30);
         registerCustomers.setBounds(100,150,300,30);
-        removeCustomer.setBounds(100,200,300,30);
+        searchCustomer.setBounds(100,200,300,30);
 
         panel.setLayout(null);
         panel.setSize(500, 500);
         panel.add(label);
         panel.add(viewCustomers);
         panel.add(registerCustomers);
-        panel.add(removeCustomer);
+        panel.add(searchCustomer);
 
         dialog.add(panel);
         dialog.setLayout(null);

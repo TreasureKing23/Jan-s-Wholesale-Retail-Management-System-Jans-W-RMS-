@@ -66,6 +66,12 @@ public class Server {
                             insertIntoCustomer(customer);
                             objOs.writeObject(true);
                         }
+                        case "Update Customer" -> {
+                            id = (String) objIs.readObject();
+                            customer = (Customer) objIs.readObject();
+                            updateCustomer(id, customer);
+                            objOs.writeObject(true);
+                        }
                         case "Delete Customer" -> {
                             id = (String) objIs.readObject();
                             deleteCustomer(id);
@@ -99,6 +105,12 @@ public class Server {
                             insertIntoInventory(product);
                             objOs.writeObject(true);
                         }
+                        case "Update Product" -> {
+                            id = (String) objIs.readObject();
+                            product = (Products) objIs.readObject();
+                            updateProduct(id, product);
+                            objOs.writeObject(true);
+                        }
                         case "Delete Product" -> {
                             id = (String) objIs.readObject();
                             deleteProduct(id);
@@ -116,6 +128,12 @@ public class Server {
                         case "Add Staff" -> {
                             staff = (Staff) objIs.readObject();
                             insertIntoStaff(staff);
+                            objOs.writeObject(true);
+                        }
+                        case "Update Staff" -> {
+                            id = (String) objIs.readObject();
+                            staff = (Staff) objIs.readObject();
+                            updateStaff(id, staff);
                             objOs.writeObject(true);
                         }
                         case "Delete Staff" -> {
@@ -200,7 +218,7 @@ public class Server {
     }
 
     public void deleteCustomer(String id){
-        String query = "DELETE FROM customer WHERE CustomerID = " + id;
+        String query = "DELETE FROM customer WHERE CustomerID = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
@@ -214,8 +232,8 @@ public class Server {
 
     public Customer findCustomerById(String id){
         Customer customer = new Customer();
-        String query = "SELECT * FROM customer WHERE CustomerID = " + id;
-        String addQuery = "SELECT * FROM address WHERE CustomerID = " + id;
+        String query = "SELECT * FROM customer WHERE CustomerID = '" + id + "'";
+        String addQuery = "SELECT * FROM address WHERE CustomerID = '" + id + "'";
         try{
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
@@ -238,6 +256,24 @@ public class Server {
             ex.printStackTrace();
         }
         return customer;
+    }
+
+    public void updateCustomer(String id, Customer customer){
+        String url = "UPDATE customer SET Name = '"+customer.getCusName()+"', DOB = '"+customer.getDob()+"', Telephone = '"+customer.getTelephone()+"'" +
+                ", EmailAddress = '"+customer.getEmail()+"' WHERE CustomerID = '" + id + "'";
+        String addUrl = "UPDATE address SET Street = '"+customer.getAddress().getStreet()+"', Town = '"+customer.getAddress().getTown()+"'," +
+                " Parish = '"+customer.getAddress().getParish()+"' WHERE CustomerID = '" + id + "'";
+        try {
+            stmt = dBConn.createStatement();
+            if(stmt.executeUpdate(url) == 1 && stmt.executeUpdate(addUrl) == 1){
+                objOs.writeObject(true);
+                logger.info("Customer updated in the database");
+            }
+            else
+                objOs.writeObject(false);
+        } catch (IOException | SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
     public Vector<Customer> showCustomers(){
@@ -290,8 +326,25 @@ public class Server {
         }
     }
 
+    public void updateProduct(String id, Products product){
+        String url = "UPDATE customer SET Name = '"+product.getProdName()+"', ShortDesc = '"+product.getProdShortDesc()+"', " +
+                "LongDesc = '"+product.getProdLongDesc()+"'" + ", ItemsInStock = '"+product.getProdStock()+"', " +
+                "UnitPrice = '"+product.getUnitPrice()+"' WHERE CustomerID = '" + id + "'";
+        try {
+            stmt = dBConn.createStatement();
+            if(stmt.executeUpdate(url) == 1){
+                objOs.writeObject(true);
+                logger.info("Product updated in the database");
+            }
+            else
+                objOs.writeObject(false);
+        } catch (IOException | SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
     public void deleteProduct(String id){
-        String query = "DELETE FROM inventory WHERE ProductCode = " + id;
+        String query = "DELETE FROM inventory WHERE ProductCode = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
@@ -305,7 +358,7 @@ public class Server {
 
     public Products findProductById(String id){
         Products product = new Products();
-        String query = "SELECT * FROM inventory WHERE ProductCode = " + id;
+        String query = "SELECT * FROM inventory WHERE ProductCode = '" + id  + "'";
         try{
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
@@ -365,8 +418,25 @@ public class Server {
         }
     }
 
+    public void updateStaff(String id, Staff staff){
+        String url = "UPDATE customer SET Name = '"+staff.getName()+"', Position = '"+staff.getPosition()+"', " +
+                "Department = '"+staff.getDepartment()+"'" + ", DOB = '"+staff.getDateOfBirth()+
+                "' WHERE CustomerID = '" + id + "'";
+        try {
+            stmt = dBConn.createStatement();
+            if(stmt.executeUpdate(url) == 1){
+                objOs.writeObject(true);
+                logger.info("Staff updated in the database");
+            }
+            else
+                objOs.writeObject(false);
+        } catch (IOException | SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
     public void deleteStaff(String id){
-        String query = "DELETE FROM staff WHERE StaffID = " + id;
+        String query = "DELETE FROM staff WHERE StaffID = '" + id + "'";
         try {
             stmt = dBConn.createStatement();
             if(stmt.executeUpdate(query) == 1)
@@ -380,7 +450,7 @@ public class Server {
 
     public Staff findStaffById(String id){
         Staff staff = new Staff();
-        String query = "SELECT * FROM staff WHERE StaffID = " + id;
+        String query = "SELECT * FROM staff WHERE StaffID = '" + id + "'";
         try{
             stmt = dBConn.createStatement();
             result = stmt.executeQuery(query);
