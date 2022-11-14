@@ -176,6 +176,31 @@ public class DatabaseConnection {
     }
 
 
+    public static Vector salesReport(String itemName) throws  SQLException{
+        Vector<String> summary = new Vector<>();
+        Statement statement = conn.createStatement();
+        String query = "Select Item, SUM(Quantity) as TotalSales from checkout WHERE Item = '"+itemName+"'";  //AND BillingDate between '"+firstDate+"' AND '"+secondDate+"'";
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+                String item = rs.getString(1);
+                String quantity = String.valueOf(rs.getInt(2));;
+                summary.add(item);
+                summary.add(quantity);
+            logger.info("Sales report generated");
+
+        } catch (SQLException e) {
+            logger.error("Sales report not generated");
+            e.printStackTrace();
+        }
+
+        return summary;
+
+    }
+
+
+
 
 
 }
