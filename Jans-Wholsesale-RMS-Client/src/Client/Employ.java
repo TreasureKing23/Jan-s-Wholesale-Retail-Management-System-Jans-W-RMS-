@@ -11,9 +11,7 @@ import java.text.SimpleDateFormat;
 
 public class Employ {
 
-    public Employ() throws SQLException {
-        DatabaseConnection dbconn = new DatabaseConnection();
-        dbconn.connectToDB();
+    public Employ() {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String departmentList[] = {"Management","Inventory","Accounting and Sales"};
         String positionList[] = {"Manager","Supervisor","Cashier","LineWorker","Cashier"};
@@ -63,12 +61,12 @@ public class Employ {
                 String position = positionBox.getSelectedItem().toString();
 
                 Staff staff = new Staff(name,id,position,department,dob);
-                try {
-                    dbconn.insertIntoStaff(staff);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
 
+                Client client = new Client();
+                client.sendAction("Add Staff");
+                client.sendObject(staff);
+                client.receiveResponse();
+                client.closeConnection();
             }
         });
 
@@ -87,16 +85,12 @@ public class Employ {
 
         staffPanel.setLayout(null);
         staffFrame.add(staffPanel);
+        staffFrame.setModal(true);
         staffFrame.setSize(400,400);
         staffFrame.setVisible(true);
         staffFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
-    }
-
-    public static void main(String[] args) throws SQLException {
-
-        Employ employ = new Employ();
     }
 
 }

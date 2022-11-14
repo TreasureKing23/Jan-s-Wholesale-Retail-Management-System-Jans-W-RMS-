@@ -77,6 +77,7 @@ public class CustomerDetails {
 
         IdText.setEditable(false);
 
+
         Delete.addActionListener(e ->{
             Client client1 = new Client();
             client1.sendAction("Delete Customer");
