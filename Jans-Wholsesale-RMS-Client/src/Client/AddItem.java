@@ -1,8 +1,6 @@
 package Client;
 
-import DBconnection.DatabaseConnection;
 import Domain.Products;
-import format.Address;
 
 import javax.swing.*;
 import java.sql.SQLException;

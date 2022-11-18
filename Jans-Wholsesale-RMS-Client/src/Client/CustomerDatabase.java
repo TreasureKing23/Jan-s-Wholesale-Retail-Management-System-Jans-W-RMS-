@@ -1,6 +1,5 @@
 package Client;
 
-import DBconnection.DatabaseConnection;
 import Domain.Customer;
 
 import javax.swing.*;
@@ -12,18 +11,12 @@ import java.util.Vector;
 public class CustomerDatabase {
     public CustomerDatabase(){
 
-        DatabaseConnection dbconn = new DatabaseConnection();
         Enumeration enu = null;
-        try {
-            dbconn.connectToDB();
-            Client client = new Client();
-            client.sendAction("List Customers");
-            Vector<Customer> cus = (Vector<Customer>) client.receiveObject();
-            client.closeConnection();
-            enu = cus.elements();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        Client client = new Client();
+        client.sendAction("List Customers");
+        Vector<Customer> cus = (Vector<Customer>) client.receiveObject();
+        client.closeConnection();
+        enu = cus.elements();
         Enumeration finalEnu = enu;
 
         JDialog dialog = new JDialog();

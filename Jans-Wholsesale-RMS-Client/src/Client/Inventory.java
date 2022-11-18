@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.*;
 
-import DBconnection.*;
 import Domain.Products;
 
 public class Inventory {
@@ -15,8 +14,6 @@ public class Inventory {
     public Inventory()  {
 
 
-
-        DatabaseConnection dbconn = new DatabaseConnection();
         Enumeration enu = null;
         Client client = new Client();
         client.sendAction("List Products");

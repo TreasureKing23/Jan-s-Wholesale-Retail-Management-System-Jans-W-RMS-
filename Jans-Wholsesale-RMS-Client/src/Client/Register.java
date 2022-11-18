@@ -1,6 +1,5 @@
 package Client;
 import Domain.*;
-import DBconnection.*;
 import format.Address;
 
 import javax.swing.*;
@@ -16,8 +15,6 @@ public class Register {
 
     public Register() throws SQLException {
 
-        DatabaseConnection dbconn = new DatabaseConnection();
-        dbconn.connectToDB();
         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String parishList[] = {"Kingston","St. Andrew","St. Thomas","Portland","St. Mary","St. Ann","Trelawny","St. James","Hanover","Westmoreland","St. Elizabeth","Manchester","Clarendon"};

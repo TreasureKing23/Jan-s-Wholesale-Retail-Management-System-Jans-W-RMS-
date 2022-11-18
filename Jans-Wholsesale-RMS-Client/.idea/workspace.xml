@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edcbe7fe-3d5b-4dc6-adf4-b7f44a3c7a4d" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jans-Wholesale-RMS-Server/src/Server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/AddItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/AddItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Checkout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CheckoutProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CheckoutProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/CustomerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/CustomerDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Employ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Employ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/StaffDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/StaffDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBconnection/DatabaseConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CheckoutProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CheckoutProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/DBguitest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,7 +1,5 @@
 package Client;
 
-import DBconnection.DatabaseConnection;
-import Domain.Customer;
 import Domain.Staff;
 
 import javax.swing.*;

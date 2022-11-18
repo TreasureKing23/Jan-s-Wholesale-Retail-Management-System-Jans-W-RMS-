@@ -1,7 +1,6 @@
 package gui;
 
 import Client.Client;
-import DBconnection.DatabaseConnection;
 import Domain.Customer;
 import Domain.Invoice;
 import Domain.Products;
