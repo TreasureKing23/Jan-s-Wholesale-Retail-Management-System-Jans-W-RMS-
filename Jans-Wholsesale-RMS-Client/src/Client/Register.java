@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
-import static DBconnection.DatabaseConnection.insertIntoCustomer;
 
 public class Register {
 

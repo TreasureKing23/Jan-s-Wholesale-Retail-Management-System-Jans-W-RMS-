@@ -38,34 +38,6 @@ public class DatabaseConnection {
         logger.info("Customer added to the database");
     }
 
-    public static Vector<Customer> showCustomers() throws SQLException {
-        Vector<Customer> cusList = new Vector<>();
-        String c = "customer";
-        String query = "SELECT * FROM customer";
-        String query2 = "SELECT * FROM address";
-        PreparedStatement ps = conn.prepareStatement(query);
-        PreparedStatement ps2 = conn.prepareStatement(query2);
-        ResultSet rs = ps.executeQuery();
-        ResultSet rs2 = ps2.executeQuery();
-        while (rs.next() && rs2.next()) {
-            String cusID = rs.getString(1);
-            String cusName = rs.getString(2);
-            String dob = rs.getString(3);
-            String telephone = rs.getString(4);
-            String email = rs.getString(5);
-            String dateOfMembership = rs.getString(6);
-            String dateOfMembershipExp = rs.getString(7);
-            String street = rs2.getString(2);
-            String town = rs2.getString(3);
-            String parish = rs2.getString(4);
-            Address address = new Address(street, town, parish);
-            Customer customer = new Customer(cusID, cusName, dob,address, telephone, email, dateOfMembership, dateOfMembershipExp);
-            cusList.add(customer);
-        }
-        logger.info("Customer list retrieved from database");
-        return cusList;
-    }
-
     public static Connection deleteCustomer(String id) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "DELETE FROM customer WHERE CustomerID = '"+id+"'";
