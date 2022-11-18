@@ -25,7 +25,7 @@ public class MainMenu {
         JButton customerDatabase = new JButton("Customer Database");
         JButton inventoryButton = new JButton("Inventory");
         JButton staffDatabase = new JButton("Staff Database");
-        JButton invoiceButton = new JButton("Invoices");
+        JButton invoiceButton = new JButton("Cash Register");
         JButton exitButton = new JButton("Exit");
 
         label.setBounds(220,20,200,25);

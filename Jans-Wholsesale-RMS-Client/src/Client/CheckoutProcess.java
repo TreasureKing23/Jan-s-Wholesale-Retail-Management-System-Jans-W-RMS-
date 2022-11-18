@@ -18,8 +18,8 @@ public class CheckoutProcess {
 
     public CheckoutProcess(){
         JFrame frame = new JFrame();
-        JButton option1 = new JButton("Option1");
-        JButton option2 = new JButton("Option2");
+        JButton option1 = new JButton("Store Member");
+        JButton option2 = new JButton("General Public");
 
         option1.setBounds(100, 100, 300, 25);
         option2.setBounds(100, 150, 300, 25);
@@ -129,7 +129,17 @@ public class CheckoutProcess {
             int index = productsList.getSelectedIndex();
             double price1 = prices.get(index);
             int quantity1 = Integer.parseInt(quantityField.getText());
-            subtotalField.setText(Double.toString(price1 * quantity1));
+            double discount = (price1 * quantity1) * 0.1;
+            double tax = (price1 * quantity1) * 0.15;
+            switch (choice) {
+                case 1 -> {
+                    subtotalField.setText(df.format((price1 * quantity1) - discount + tax));
+                }
+                case 2 -> {
+                    subtotalField.setText(df.format((price1 * quantity1) + tax));
+                }
+            }
+
         });
 
         panel.setLayout(null);

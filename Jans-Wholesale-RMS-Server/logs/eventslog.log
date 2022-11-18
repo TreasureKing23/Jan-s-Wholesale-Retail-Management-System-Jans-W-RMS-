@@ -35,3 +35,9 @@
 [ INFO] 2022-11-17 23:10:41.981 [main] Server - Database Connection Successful
 [ INFO] 2022-11-17 23:10:56.835 [main] Server - Customer list sent to the client
 [ INFO] 2022-11-17 23:11:04.284 [main] Server - Invoice added to the database
+[ INFO] 2022-11-18 10:36:20.795 [main] Server - Database Connection Successful
+[ INFO] 2022-11-18 10:36:50.369 [main] Server - Customer list sent to the client
+[ INFO] 2022-11-18 10:37:00.768 [main] Server - Invoice added to the database
+[ INFO] 2022-11-18 10:38:15.571 [main] Server - Database Connection Successful
+[ INFO] 2022-11-18 10:38:25.184 [main] Server - Invoice added to the database
+[ INFO] 2022-11-18 10:38:34.400 [main] Server - Invoice added to the database
