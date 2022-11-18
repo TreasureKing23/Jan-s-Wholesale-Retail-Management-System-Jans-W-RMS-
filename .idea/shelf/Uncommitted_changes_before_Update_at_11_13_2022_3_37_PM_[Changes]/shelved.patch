@@ -1,0 +1,114 @@
+Index: Project/Jans-Wholsesale-RMS-Client/src/gui/Register.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package gui;\r\nimport entities.*;\r\nimport DBconnection.*;\r\nimport format.Address;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.sql.SQLException;\r\nimport java.text.DateFormat;\r\nimport java.text.SimpleDateFormat;\r\nimport java.time.format.DateTimeFormatter;\r\nimport java.time.LocalDateTime;\r\nimport java.util.Date;\r\n\r\nimport static DBconnection.DatabaseConnection.insertIntoCustomer;\r\n\r\npublic class Register {\r\n\r\n    public Register() throws SQLException {\r\n\r\n        DatabaseConnection dbconn = new DatabaseConnection();\r\n        dbconn.connectToDB();\r\n        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern(\"yyyy/MM/dd HH:mm:ss\");\r\n        DateFormat df = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n        String parishList[] = {\"Kingston\",\"St. Andrew\",\"St. Thomas\",\"Portland\",\"St. Mary\",\"St. Ann\",\"Trelawny\",\"St. James\",\"Hanover\",\"Westmoreland\",\"St. Elizabeth\",\"Manchester\",\"Clarendon\"};\r\n        JDialog rFrame = new JDialog();\r\n        JPanel rPanel = new JPanel();\r\n\r\n        JLabel label = new JLabel(\"Register a new customer\");\r\n        JLabel nameLabel = new JLabel(\"Name: \");\r\n        JLabel DobLabel = new JLabel(\"Date of Birth MM/DD/YYYY: \");\r\n        JLabel streetLabel = new JLabel(\"Street: \");\r\n        JLabel townLabel = new JLabel(\"Town/City: \");\r\n        JLabel parishLabel = new JLabel(\"Parish: \");\r\n        JLabel emailAddressLabel = new JLabel(\"Email: \");\r\n        JLabel telLabel = new JLabel(\"Telephone: \");\r\n\r\n        JTextField nameText = new JTextField();\r\n        JFormattedTextField dobInput = new JFormattedTextField(df);\r\n        JTextField streetText = new JTextField();\r\n        JTextField townText = new JTextField();\r\n        JComboBox  parishBox = new JComboBox(parishList);\r\n        JTextField emailText = new JTextField();\r\n        JTextField telText = new JTextField();\r\n\r\n        JButton register = new JButton(\"Register\");\r\n\r\n        label.setBounds(150,40,200,30);\r\n        nameLabel.setBounds(20, 100,100,25);\r\n        nameText.setBounds(120, 100,200,25);\r\n        DobLabel.setBounds(20, 130,100,25);\r\n        dobInput.setBounds(120, 130,200,25);\r\n        streetLabel.setBounds(20, 160,100,25);\r\n        streetText.setBounds(120, 160,200,25);\r\n        townLabel.setBounds(20, 190,100,25);\r\n        townText.setBounds(120, 190,200,25);\r\n        parishLabel.setBounds(20, 220,100,25);\r\n        parishBox.setBounds(120, 220,200,25);\r\n        emailAddressLabel.setBounds(20, 250,100,25);\r\n        emailText.setBounds(120, 250,200,25);\r\n        telLabel.setBounds(20, 280,100,25);\r\n        telText.setBounds(120, 280,200,25);\r\n\r\n        register.setBounds(200, 400, 100, 25);\r\n\r\n        register.addActionListener(e -> {\r\n\r\n            if(nameText.getText().isEmpty() || dobInput.getText().isEmpty() || streetText.getText().isEmpty() || townText.getText().isEmpty() || emailText.getText().isEmpty() || telText.getText().isEmpty()) {\r\n                JOptionPane.showMessageDialog(null, \"Please fill in all fields\");\r\n            }\r\n            else{\r\n                int a = (int)(Math.random()*(200-100+1)+100);\r\n                String id = \"C\" + a;\r\n                String name = nameText.getText();\r\n                String dob = dobInput.getText();\r\n                String street = streetText.getText();\r\n                String town = townText.getText();\r\n                String parish = parishBox.getSelectedItem().toString();\r\n                String email = emailText.getText();\r\n                String tel = telText.getText();\r\n                String dateOfMembership = dateTime.format(LocalDateTime.now());\r\n                String dateOfMembershipExp = dateTime.format(LocalDateTime.now().plusYears(1));\r\n                Address address = new Address(street, town, parish);\r\n                Customer customer = new Customer(id,name, dob, address, tel, email, dateOfMembership, dateOfMembershipExp);\r\n                try {\r\n                    insertIntoCustomer(customer);\r\n                    JOptionPane.showMessageDialog(null, \"Customer inserted\", \"Success\",JOptionPane.INFORMATION_MESSAGE);\r\n                    rFrame.dispose();\r\n                } catch (SQLException ex) {\r\n                    throw new RuntimeException(ex);\r\n                }\r\n\r\n            }\r\n        });\r\n\r\n        rPanel.setLayout(null);\r\n        rPanel.setSize(500, 500);\r\n\r\n        rPanel.add(register);\r\n        rPanel.add(label);\r\n        rPanel.add(nameLabel);\r\n        rPanel.add(nameText);\r\n        rPanel.add(DobLabel);\r\n        rPanel.add(dobInput);\r\n        rPanel.add(streetLabel);\r\n        rPanel.add(streetText);\r\n        rPanel.add(townLabel);\r\n        rPanel.add(townText);\r\n        rPanel.add(parishLabel);\r\n        rPanel.add(parishBox);\r\n        rPanel.add(emailAddressLabel);\r\n        rPanel.add(emailText);\r\n        rPanel.add(telLabel);\r\n        rPanel.add(telText);\r\n\r\n\r\n        rFrame.add(rPanel);\r\n        rFrame.setModalityType(Dialog.DEFAULT_MODALITY_TYPE);\r\n        rFrame.setLayout(null);\r\n        rFrame.setSize(500, 500);\r\n        rFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\r\n\r\n        rFrame.setVisible(true);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Project/Jans-Wholsesale-RMS-Client/src/gui/Register.java b/Project/Jans-Wholsesale-RMS-Client/src/gui/Register.java
+--- a/Project/Jans-Wholsesale-RMS-Client/src/gui/Register.java	(revision c2542ee41870f6360bd28bb9b525847f2323268b)
++++ b/Project/Jans-Wholsesale-RMS-Client/src/gui/Register.java	(date 1668367746340)
+@@ -23,7 +23,7 @@
+         DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+         String parishList[] = {"Kingston","St. Andrew","St. Thomas","Portland","St. Mary","St. Ann","Trelawny","St. James","Hanover","Westmoreland","St. Elizabeth","Manchester","Clarendon"};
+-        JDialog rFrame = new JDialog();
++        JDialog rDialog = new JDialog();
+         JPanel rPanel = new JPanel();
+ 
+         JLabel label = new JLabel("Register a new customer");
+@@ -85,7 +85,7 @@
+                 try {
+                     insertIntoCustomer(customer);
+                     JOptionPane.showMessageDialog(null, "Customer inserted", "Success",JOptionPane.INFORMATION_MESSAGE);
+-                    rFrame.dispose();
++                    rDialog.dispose();
+                 } catch (SQLException ex) {
+                     throw new RuntimeException(ex);
+                 }
+@@ -114,13 +114,13 @@
+         rPanel.add(telText);
+ 
+ 
+-        rFrame.add(rPanel);
+-        rFrame.setModalityType(Dialog.DEFAULT_MODALITY_TYPE);
+-        rFrame.setLayout(null);
+-        rFrame.setSize(500, 500);
+-        rFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
++        rDialog.add(rPanel);
++        rDialog.setModalityType(Dialog.DEFAULT_MODALITY_TYPE);
++        rDialog.setLayout(null);
++        rDialog.setSize(500, 500);
++        rDialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+ 
+-        rFrame.setVisible(true);
++        rDialog.setVisible(true);
+     }
+ 
+ }
+Index: Project/Jans-Wholsesale-RMS-Client/src/gui/Checkout.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package gui;\r\n\r\n\r\nimport DBconnection.*;\r\nimport java.sql.SQLException;\r\n\r\npublic class Checkout {\r\n\r\n    public  Checkout() throws SQLException {\r\n        DatabaseConnection dbconn = new DatabaseConnection();\r\n        dbconn.connectToDB();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Project/Jans-Wholsesale-RMS-Client/src/gui/Checkout.java b/Project/Jans-Wholsesale-RMS-Client/src/gui/Checkout.java
+--- a/Project/Jans-Wholsesale-RMS-Client/src/gui/Checkout.java	(revision c2542ee41870f6360bd28bb9b525847f2323268b)
++++ b/Project/Jans-Wholsesale-RMS-Client/src/gui/Checkout.java	(date 1668370456179)
+@@ -1,14 +1,51 @@
+ package gui;
+ 
+ 
+-import DBconnection.*;
++import javax.swing.*;
+ import java.sql.SQLException;
+ 
+ public class Checkout {
+ 
+-    public  Checkout() throws SQLException {
+-        DatabaseConnection dbconn = new DatabaseConnection();
+-        dbconn.connectToDB();
++    private static CheckoutProcess checkoutProcess;
++
++    public Checkout() throws SQLException {
++        CheckoutProcess checkoutProcess = new CheckoutProcess();
++        JFrame cFrame = new JFrame("Is this an existing customer?");
++        JPanel cPanel = new JPanel();
++
++        JButton yesButton = new JButton("Yes");
++        JButton noButton = new JButton("No");
+ 
++        cPanel.add(yesButton);
++        cPanel.add(noButton);
++
++        cFrame.add(cPanel);
++        cFrame.setSize(300, 300);
++        cFrame.setVisible(true);
++        cFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
++
++
++
++        yesButton.addActionListener(e -> {
++            try {
++                checkoutProcess.Select(1);
++            } catch (SQLException throwables) {
++                throwables.printStackTrace();
++            }
++        });
++
++        noButton.addActionListener(e -> {
++            try {
++                checkoutProcess.Select(2);
++            } catch (SQLException throwables) {
++                throwables.printStackTrace();
++            }
++        });
++
++
++    }
++
++    public static void main(String[] args) throws SQLException {
++        new Checkout();
+     }
+ }
