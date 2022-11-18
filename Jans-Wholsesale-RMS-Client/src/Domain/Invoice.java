@@ -1,7 +1,9 @@
 package Domain;
 
 
-public class Invoice {
+import java.io.Serializable;
+
+public class Invoice implements Serializable {
 
     private int invoiceNo;
     private String billingDate;

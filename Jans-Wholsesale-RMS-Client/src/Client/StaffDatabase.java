@@ -88,7 +88,7 @@ public class StaffDatabase {
                 JComboBox  positionBox = new JComboBox(positionList);
 
                 Client sClient = new Client();
-                sClient.sendAction("Find Customer");
+                sClient.sendAction("Find Staff");
                 sClient.sendID(searchID);
                 Staff  staff = (Staff) sClient.receiveObject();
                 sClient.closeConnection();
@@ -143,8 +143,8 @@ public class StaffDatabase {
                 departmentBox.setBounds(120, 220,200,25);
                 positionLabel.setBounds(20, 250,100,25);
                 positionBox.setBounds(120, 250,200,25);
-                Update.setBounds(75, 400, 100, 25);
-                Delete.setBounds(225, 400, 100, 25);
+                Update.setBounds(75, 300, 100, 25);
+                Delete.setBounds(225, 300, 100, 25);
 
                 sPanel.add(sLabel);
                 sPanel.add(firstNameLabel);

@@ -45,7 +45,7 @@ public class AddItem {
 
         register.addActionListener(e -> {
 
-            String id = "P" + (int)(Math.random() * 1000000);
+            String id = "P" + (int)(Math.random() * 1000);
             String name = nameText.getText();
             String shortDesc = shortDescText.getText();
             String longDesc = longDescText.getText();

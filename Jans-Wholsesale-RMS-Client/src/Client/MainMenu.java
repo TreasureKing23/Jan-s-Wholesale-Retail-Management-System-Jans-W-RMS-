@@ -55,7 +55,8 @@ public class MainMenu {
         });
 
         invoiceButton.addActionListener(e -> {
-
+            CheckoutProcess cp = new CheckoutProcess();
+            logger.info("Invoice button pressed");
         });
 
         exitButton.addActionListener(e -> System.exit(0));

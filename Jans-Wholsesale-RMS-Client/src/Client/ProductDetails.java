@@ -54,8 +54,8 @@ public class ProductDetails {
         quantityText.setBounds(120, 220,200,25);
         priceLabel.setBounds(20, 250,100,25);
         priceText.setBounds(120, 250,200,25);
-        Update.setBounds(100, 400, 100, 25);
-        Delete.setBounds(300, 400, 100, 25);
+        Update.setBounds(100, 300, 100, 25);
+        Delete.setBounds(300, 300, 100, 25);
 
 
 

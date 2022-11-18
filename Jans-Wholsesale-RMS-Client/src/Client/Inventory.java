@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.*;
 
 import DBconnection.*;
@@ -12,6 +13,8 @@ import Domain.Products;
 public class Inventory {
 
     public Inventory()  {
+
+
 
         DatabaseConnection dbconn = new DatabaseConnection();
         Enumeration enu = null;
@@ -55,6 +58,7 @@ public class Inventory {
         view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                DecimalFormat df = new DecimalFormat("0.00");
                 JFrame viewFrame = new JFrame("INVENTORY");
                 String[] columnNames ={"Product ID", "Product Name", "Short Description", "Long Description", "Quantity", "Price"};
                 DefaultTableModel model = new DefaultTableModel(columnNames, 0);
@@ -66,7 +70,7 @@ public class Inventory {
                     row.add(product.getProdShortDesc());
                     row.add(product.getProdLongDesc());
                     row.add(Integer.toString(product.getProdStock()));
-                    row.add(Double.toString(product.getUnitPrice()));
+                    row.add(df.format(product.getUnitPrice()));
                     model.addRow(row);
                 }
                 JTable table = new JTable(model);
