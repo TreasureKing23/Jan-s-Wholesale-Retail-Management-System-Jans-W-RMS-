@@ -175,7 +175,6 @@ public class DatabaseConnection {
         return conn;
     }
 
-
     public static Vector salesReport(String itemName) throws  SQLException{
         Vector<String> summary = new Vector<>();
         Statement statement = conn.createStatement();

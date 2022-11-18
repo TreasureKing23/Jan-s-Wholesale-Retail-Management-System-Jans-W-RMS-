@@ -103,6 +103,11 @@ public class Server {
                             invoiceList = showInvoices();
                             objOs.writeObject(invoiceList);
                         }
+                        case "Get Report" -> {
+                            id = (String) objIs.readObject();
+                            Object obj = salesReport(id);
+                            objOs.writeObject(obj);
+                        }
                         case "Add Product" -> {
                             product = (Products) objIs.readObject();
                             insertIntoInventory(product);
@@ -363,9 +368,10 @@ public class Server {
             if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
                 logger.info("Product deleted from the database");
-            } else
+            } else {
                 objOs.writeObject(false);
                 logger.info("Product not deleted from the database");
+            }
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
         }
@@ -457,9 +463,10 @@ public class Server {
             if(stmt.executeUpdate(query) == 1) {
                 objOs.writeObject(true);
                 logger.info("Staff deleted from the database");
-            } else
+            } else {
                 objOs.writeObject(false);
                 logger.info("Staff not deleted from the database");
+            }
         } catch (IOException | SQLException ex){
             ex.printStackTrace();
         }
@@ -588,4 +595,24 @@ public class Server {
         return invoiceList;
     }
 
+    public static Vector salesReport(String itemName) {
+        Vector<String> summary = new Vector<>();
+        String query = "Select Item, SUM(Quantity) as TotalSales from checkout WHERE Item = '" + itemName + "'";  //AND BillingDate between '"+firstDate+"' AND '"+secondDate+"'";
+        try {
+            PreparedStatement ps = dBConn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            String item = rs.getString(1);
+            String quantity = String.valueOf(rs.getInt(2));
+            ;
+            summary.add(item);
+            summary.add(quantity);
+            logger.info("Sales report generated");
+
+        } catch (SQLException e) {
+            logger.error("Sales report not generated");
+            e.printStackTrace();
+        }
+        return summary;
+    }
 }
